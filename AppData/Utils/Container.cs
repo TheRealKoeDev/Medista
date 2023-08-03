@@ -3,12 +3,20 @@ using MediatR;
 using MediatR.Pipeline;
 using System.Reflection;
 using AppData.Persistance;
-using Autofac.Core;
 
 namespace AppData.Utils
 {
     public static class Container
     {
+        private class ServiceProvider : IServiceProvider
+        {
+            public object? GetService(Type serviceType)
+            {
+                // TODO: ?
+                return null;
+            }
+        }
+
         private static readonly ContainerBuilder _builder = new();
         private static IContainer _container;
 
@@ -23,7 +31,7 @@ namespace AppData.Utils
 
         public static T Get<T>() where T : notnull
         {
-            return _container.Resolve<T>(Array.Empty<Parameter>());
+            return _container.Resolve<T>();
         }
 
         public static object Get(Type type)
@@ -48,8 +56,10 @@ namespace AppData.Utils
 
         private static void RegisterMediatorClasses(Assembly assembly)
         {
+            _builder.RegisterInstance<IServiceProvider>(new ServiceProvider());
+
             _builder
-                .RegisterType<Mediator>()
+                .RegisterType(typeof(Mediator))
                 .As<IMediator>()
                 .InstancePerLifetimeScope();
 

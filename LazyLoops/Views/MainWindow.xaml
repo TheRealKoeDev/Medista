@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:views="clr-namespace:LazyLoops.Views"
         mc:Ignorable="d"
-        Title="MainWindow"
+        Title="LazyLoops"
         Style="{DynamicResource MainWindowStyle}">
     <Window.Resources>
         <ResourceDictionary Source="../Styles/MainWindowStyle.xaml" />

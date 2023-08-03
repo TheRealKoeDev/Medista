@@ -65,7 +65,7 @@
             Margin="15,0,0,0"
             Foreground="{DynamicResource MaterialDesignDarkForeground}"
             FontSize="15"
-            Text="BlitzSetup">
+            Text="LazyLoops">
         </TextBlock>
     </DockPanel>
 </Border>

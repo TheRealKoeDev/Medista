@@ -7,7 +7,7 @@ namespace LazyLoops.ViewModels
 {
     public abstract class ViewModel : INotifyPropertyChanged, IDisposable
     {
-        protected readonly IMediator? Mediator;
+        protected readonly IMediator Mediator = AppData.Utils.Container.Get<IMediator>();
 
         public event PropertyChangedEventHandler? PropertyChanged;
 
