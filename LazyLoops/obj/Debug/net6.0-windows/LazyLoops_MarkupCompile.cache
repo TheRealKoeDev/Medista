@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\KoeDev\Source\Repos\LazyLoops\LazyLoops\obj\Debug\net6.0-windows\
-LazyLoops_rdt3vjel_wpftmp
+C:\Users\KoeDev\source\repos\LazyLoops\LazyLoops\obj\Debug\net6.0-windows\
+LazyLoops
 none
 false
-TRACE;RELEASE;NET;NET6_0;NETCOREAPP
-C:\Users\KoeDev\Source\Repos\LazyLoops\LazyLoops\App.xaml
-11407045341
+TRACE;DEBUG;NET;NET6_0;NETCOREAPP
+C:\Users\KoeDev\source\repos\LazyLoops\LazyLoops\App.xaml
+6-2117703641
 
-5305346470
-388341641474
-MainWindow.xaml;
+15-1581516160
+212-347621649
+Styles\MainContentStyle.xaml;Styles\MainTitleBarButtonStyle.xaml;Styles\MainWindowStyle.xaml;Styles\TitleBarStyle.xaml;Views\MainWindow.xaml;Views\MainWindowTitleBar.xaml;
 
-True
+False
 

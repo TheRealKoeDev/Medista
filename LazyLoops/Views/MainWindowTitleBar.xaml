@@ -1,0 +1,71 @@
+﻿<Border
+    mc:Ignorable="d"
+    d:DesignWidth="394.591"
+    x:Name="View"
+    x:Class="LazyLoops.Views.WindowTitleBar"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+    xmlns:viewmodels="clr-namespace:LazyLoops.ViewModels"
+    d:DataContext="{d:DesignInstance Type=viewmodels:ViewModel}"
+    BorderThickness="0 0 0 4"
+    BorderBrush="{DynamicResource MaterialDesignLightSeparatorBackground}">
+    <Border.Resources>
+        <ResourceDictionary Source="../Styles/MainTitleBarButtonStyle.xaml" />
+    </Border.Resources>
+    <DockPanel
+        MouseDown="TitleBarMouseDown"
+        Background="{DynamicResource MaterialDesignDarkBackground}">
+
+        <Button
+            Command="{Binding CloseApplicationCommand, ElementName=View}"
+            DockPanel.Dock="Right"
+            Style="{StaticResource MainTitleBarButtonStyle}">
+            <materialDesign:PackIcon Kind="WindowClose" />
+        </Button>
+        <Button
+            x:Name="MaxButton"
+            Command="{Binding ToggleWindowMaximizationCommand, ElementName=View}"
+            DockPanel.Dock="Right"
+            Style="{StaticResource MainTitleBarButtonStyle}">
+            <materialDesign:PackIcon Kind="WindowMaximize" />
+        </Button>
+        <Button
+            x:Name="MinButton"
+            Click="MinimizeButtonClick"
+            DockPanel.Dock="Right"
+            Style="{StaticResource MainTitleBarButtonStyle}">
+            <materialDesign:PackIcon Kind="WindowMinimize" />
+        </Button>
+        <MenuItem Click="CurrentCultureButtonClick" DockPanel.Dock="Right" DataContext="{Binding ElementName=View}">
+            <MenuItem.Header>
+                <StackPanel Orientation="Horizontal">
+                    <materialDesign:PackIcon Kind="Web" Foreground="{DynamicResource MaterialDesignDarkForeground}" />
+                </StackPanel>
+            </MenuItem.Header>
+            <MenuItem.ContextMenu>
+                <ContextMenu>
+                    <MenuItem
+                        Header="English"
+                        Click="ChangeCultureClick"
+                        Tag="en-US" />
+                    <MenuItem
+                        Header="German"
+                        Click="ChangeCultureClick"
+                        Tag="de-DE" />
+                </ContextMenu>
+            </MenuItem.ContextMenu>
+        </MenuItem>
+
+        <TextBlock
+            HorizontalAlignment="Left"
+            VerticalAlignment="Center"
+            Margin="15,0,0,0"
+            Foreground="{DynamicResource MaterialDesignDarkForeground}"
+            FontSize="15"
+            Text="BlitzSetup">
+        </TextBlock>
+    </DockPanel>
+</Border>

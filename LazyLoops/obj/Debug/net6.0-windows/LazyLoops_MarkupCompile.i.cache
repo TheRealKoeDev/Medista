@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\KoeDev\Source\Repos\LazyLoops\LazyLoops\obj\Debug\net6.0-windows\
+C:\Users\KoeDev\source\repos\LazyLoops\LazyLoops\obj\Debug\net6.0-windows\
 LazyLoops
 none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
-C:\Users\KoeDev\Source\Repos\LazyLoops\LazyLoops\App.xaml
-11407045341
+C:\Users\KoeDev\source\repos\LazyLoops\LazyLoops\App.xaml
+6-2117703641
 
-51620860706
-1961207710329
-MainWindow.xaml;
+171272514103
+212-347621649
+Styles\MainContentStyle.xaml;Styles\MainTitleBarButtonStyle.xaml;Styles\MainWindowStyle.xaml;Styles\TitleBarStyle.xaml;Views\MainWindow.xaml;Views\MainWindowTitleBar.xaml;
 
-False
+True
 

@@ -1,7 +1,8 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\LazyLoops"
   ],
-  "SelectedNode": "\\C:\\Users\\KoeDev\\Source\\Repos\\LazyLoops",
-  "PreviewInSolutionExplorer": false
+  "SelectedNode": "\\LazyLoops\\LazyLoops.csproj",
+  "PreviewInSolutionExplorer": true
 }
