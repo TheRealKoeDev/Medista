@@ -12,7 +12,7 @@ namespace LazyLoops.Commands
 
         public SetCultureCommand(string? culture)
         {
-            _culture = culture ?? "de";
+            _culture = culture ?? "en-US";
         }
 
         public override void Execute(object? parameter)

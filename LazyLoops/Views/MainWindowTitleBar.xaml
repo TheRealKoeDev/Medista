@@ -9,6 +9,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
     xmlns:viewmodels="clr-namespace:LazyLoops.ViewModels"
+    xmlns:translation="clr-namespace:LazyLoops.Localization.MainWindowTitleBar"
     d:DataContext="{d:DesignInstance Type=viewmodels:ViewModel}"
     BorderThickness="0 0 0 4"
     BorderBrush="{DynamicResource MaterialDesignLightSeparatorBackground}">
@@ -48,11 +49,11 @@
             <MenuItem.ContextMenu>
                 <ContextMenu>
                     <MenuItem
-                        Header="English"
+                        Header="{x:Static translation:MainWindowTitleBar.English}"
                         Click="ChangeCultureClick"
                         Tag="en-US" />
                     <MenuItem
-                        Header="German"
+                        Header="{x:Static translation:MainWindowTitleBar.German}"
                         Click="ChangeCultureClick"
                         Tag="de-DE" />
                 </ContextMenu>

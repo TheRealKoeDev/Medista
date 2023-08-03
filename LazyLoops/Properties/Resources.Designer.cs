@@ -59,23 +59,5 @@ namespace LazyLoops.Properties {
                 resourceCulture = value;
             }
         }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to English.
-        /// </summary>
-        internal static string English {
-            get {
-                return ResourceManager.GetString("English", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to German.
-        /// </summary>
-        internal static string German {
-            get {
-                return ResourceManager.GetString("German", resourceCulture);
-            }
-        }
     }
 }

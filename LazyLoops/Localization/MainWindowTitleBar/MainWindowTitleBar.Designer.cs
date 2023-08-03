@@ -22,7 +22,7 @@ namespace LazyLoops.Localization.MainWindowTitleBar {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class MainWindowTitleBar {
+    public class MainWindowTitleBar {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace LazyLoops.Localization.MainWindowTitleBar {
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("LazyLoops.Localization.MainWindowTitleBar.MainWindowTitleBar", typeof(MainWindowTitleBar).Assembly);
@@ -51,7 +51,7 @@ namespace LazyLoops.Localization.MainWindowTitleBar {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -63,7 +63,7 @@ namespace LazyLoops.Localization.MainWindowTitleBar {
         /// <summary>
         ///   Looks up a localized string similar to English.
         /// </summary>
-        internal static string English {
+        public static string English {
             get {
                 return ResourceManager.GetString("English", resourceCulture);
             }
@@ -72,7 +72,7 @@ namespace LazyLoops.Localization.MainWindowTitleBar {
         /// <summary>
         ///   Looks up a localized string similar to German.
         /// </summary>
-        internal static string German {
+        public static string German {
             get {
                 return ResourceManager.GetString("German", resourceCulture);
             }
