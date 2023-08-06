@@ -65,7 +65,6 @@ namespace LazyLoops.Utils
                 return;
             }
 
-
             _window.WindowState = Enum.TryParse(Properties.Settings.Default.WindowState, false, out WindowState windowState) ? windowState : WindowState.Normal;
 
             if (Properties.Settings.Default.WindowSize.IsEmpty)

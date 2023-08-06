@@ -39,7 +39,6 @@ C:\Users\KoeDev\source\repos\LazyLoops\LazyLoops\obj\Debug\net6.0-windows\Styles
 C:\Users\KoeDev\source\repos\LazyLoops\LazyLoops\obj\Debug\net6.0-windows\Styles\TitleBarStyle.baml
 C:\Users\KoeDev\source\repos\LazyLoops\LazyLoops\obj\Debug\net6.0-windows\Views\MainWindowTitleBar.g.cs
 C:\Users\KoeDev\source\repos\LazyLoops\LazyLoops\obj\Debug\net6.0-windows\Views\MainWindowTitleBar.baml
-C:\Users\KoeDev\source\repos\LazyLoops\LazyLoops\obj\Debug\net6.0-windows\LazyLoops.Properties.Resources.resources
 C:\Users\KoeDev\source\repos\LazyLoops\LazyLoops\obj\Debug\net6.0-windows\LazyLoops.csproj.GenerateResource.cache
 C:\Users\KoeDev\source\repos\LazyLoops\LazyLoops\obj\Debug\net6.0-windows\de-DE\LazyLoops.resources.dll
 C:\Users\KoeDev\source\repos\LazyLoops\LazyLoops\obj\Debug\net6.0-windows\GeneratedInternalTypeHelper.g.cs

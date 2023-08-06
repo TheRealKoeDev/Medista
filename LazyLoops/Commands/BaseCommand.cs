@@ -7,7 +7,7 @@ namespace LazyLoops.Commands
 {
     public abstract class BaseCommand : ICommand, IDisposable
     {
-        protected readonly IMediator _mediator = Container.Get<IMediator>();
+        protected readonly IMediator _mediator = Injector.Get<IMediator>();
 
         public event EventHandler? CanExecuteChanged;
 

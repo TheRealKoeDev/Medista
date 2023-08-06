@@ -40,16 +40,6 @@ namespace LazyLoops.Views
             Window.StateChanged += UpdateMaximizationToggleIcon;
         }
 
-        private void CurrentCultureButtonClick(object sender, RoutedEventArgs args)
-        {
-            if (sender is not FrameworkElement currentCultureButton)
-            {
-                return;
-            }
-
-            currentCultureButton.ContextMenu.IsOpen = true;
-        }
-
         private void ChangeCultureClick(object sender, RoutedEventArgs args)
         {
             if (sender is not FrameworkElement selectedLanguageElement)
@@ -58,7 +48,12 @@ namespace LazyLoops.Views
             }
 
             string? selectedCulture = selectedLanguageElement.Tag as string;
-            // TODO: Refactor to use in xaml directly
+            if (selectedCulture == null)
+            {
+                return;
+            }
+
+            // TODO: Refactor to use in xaml directly problem = DataContext
             new SetCultureCommand(selectedCulture ?? Thread.CurrentThread.CurrentUICulture.Name).Execute();
         }
 

@@ -9,7 +9,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
     xmlns:viewmodels="clr-namespace:LazyLoops.ViewModels"
-    xmlns:lex="http://wpflocalizeextension.codeplex.com"
+    xmlns:lex="http://wpflocalizeextension.codeplex.com" xmlns:System="clr-namespace:System;assembly=netstandard"
     lex:ResxLocalizationProvider.DefaultAssembly="LazyLoops"
     lex:ResxLocalizationProvider.DefaultDictionary="MainWindowTitleBar"
     d:DataContext="{d:DesignInstance Type=viewmodels:ViewModel}"
@@ -21,8 +21,8 @@
     </Border.Resources>
     <DockPanel
         MouseDown="TitleBarMouseDown"
-        Background="{DynamicResource MaterialDesignDarkBackground}">
-
+        Background="{DynamicResource MaterialDesignDarkBackground}"
+    >      
         <Button
             Command="{Binding CloseApplicationCommand, ElementName=View}"
             DockPanel.Dock="Right"
@@ -43,27 +43,42 @@
             Style="{StaticResource MainTitleBarButtonStyle}">
             <materialDesign:PackIcon Kind="WindowMinimize" />
         </Button>
-        <MenuItem Click="CurrentCultureButtonClick" DockPanel.Dock="Right" DataContext="{Binding ElementName=View}">
-            <MenuItem.Header>
-                <StackPanel Orientation="Horizontal">
-                    <materialDesign:PackIcon Kind="Web" Foreground="{DynamicResource MaterialDesignDarkForeground}" />
-                </StackPanel>
-            </MenuItem.Header>
-            <MenuItem.ContextMenu>
-                <ContextMenu>
+        <Button x:Name="LanguageButton" DockPanel.Dock="Right" Style="{StaticResource MainTitleBarButtonStyle}">
+            <Button.ContextMenu>
+                <ContextMenu x:Name="LanguageButtonContextMenu" PlacementRectangle="{Binding RelativeSource={RelativeSource Self}}">
                     <MenuItem
                         Header="{lex:Loc Key=English}"
                         Click="ChangeCultureClick"
-                        Tag="en-US" />
+                        Tag="en-US"
+                    />
                     <MenuItem
                         Header="{lex:Loc Key=German}"
                         Click="ChangeCultureClick"
-                        Tag="de-DE" />
+                        Tag="de-DE"
+                    />
                 </ContextMenu>
-            </MenuItem.ContextMenu>
-        </MenuItem>
+            </Button.ContextMenu>
+            <Button.Triggers>
+                <EventTrigger SourceName="LanguageButton" RoutedEvent="Button.Click">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="LanguageButtonContextMenu" Storyboard.TargetProperty="(ContextMenu.IsOpen)">
+                                <DiscreteObjectKeyFrame KeyTime="0:0:0">
+                                    <DiscreteObjectKeyFrame.Value>
+                                        <System:Boolean>True</System:Boolean>
+                                    </DiscreteObjectKeyFrame.Value>
+                                </DiscreteObjectKeyFrame>
+                            </ObjectAnimationUsingKeyFrames>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Button.Triggers>
 
+            <materialDesign:PackIcon Kind="Web" />
+        </Button>
+        
         <TextBlock
+            DockPanel.Dock="Left"
             HorizontalAlignment="Left"
             VerticalAlignment="Center"
             Margin="15,0,0,0"

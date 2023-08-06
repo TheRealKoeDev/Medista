@@ -12,8 +12,8 @@ namespace LazyLoops
     {
         protected override void OnStartup(StartupEventArgs e)
         {
-            AppData.Utils.Container.Register(AppContainerBuilder.RegisterViewModels);
-            AppData.Utils.Container.Build();
+            AppData.Utils.Injector.Register(AppContainerBuilder.RegisterViewModels);
+            AppData.Utils.Injector.Build();
 
             SetCultureCommand setCultureCommand = new(LazyLoops.Properties.Settings.Default.CurrentCulture ?? Thread.CurrentThread.CurrentUICulture.Name);
             setCultureCommand.Execute();     

@@ -1,4 +1,5 @@
-﻿using MediatR;
+﻿using AppData.Utils;
+using MediatR;
 using System;
 using System.ComponentModel;
 using System.Threading.Tasks;
@@ -7,7 +8,7 @@ namespace LazyLoops.ViewModels
 {
     public abstract class ViewModel : INotifyPropertyChanged, IDisposable
     {
-        protected readonly IMediator Mediator = AppData.Utils.Container.Get<IMediator>();
+        protected readonly IMediator Mediator = Injector.Get<IMediator>();
 
         public event PropertyChangedEventHandler? PropertyChanged;
 
