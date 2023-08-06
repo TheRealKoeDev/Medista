@@ -8,24 +8,12 @@
     ".NETCoreApp,Version=v6.0": {
       "AppData/1.0.0": {
         "dependencies": {
-          "Autofac": "7.0.1",
           "LiteDB": "5.0.17",
           "MediatR": "12.1.1",
           "Microsoft.Extensions.Hosting": "7.0.1"
         },
         "runtime": {
           "AppData.dll": {}
-        }
-      },
-      "Autofac/7.0.1": {
-        "dependencies": {
-          "System.Diagnostics.DiagnosticSource": "7.0.1"
-        },
-        "runtime": {
-          "lib/net6.0/Autofac.dll": {
-            "assemblyVersion": "7.0.1.0",
-            "fileVersion": "7.0.1.0"
-          }
         }
       },
       "LiteDB/5.0.17": {
@@ -466,13 +454,6 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
-    },
-    "Autofac/7.0.1": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-J9Iz0Q+YU3uf82i8Lee0NpQOlRYfwHxwVV26jdG3zH3LFE5Y9Rx97Mju7Nswwzh/C7kVJALkTL860Y7e+mcLaw==",
-      "path": "autofac/7.0.1",
-      "hashPath": "autofac.7.0.1.nupkg.sha512"
     },
     "LiteDB/5.0.17": {
       "type": "package",

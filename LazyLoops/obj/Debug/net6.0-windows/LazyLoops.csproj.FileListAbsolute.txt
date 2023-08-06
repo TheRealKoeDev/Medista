@@ -28,7 +28,6 @@ C:\Users\KoeDev\source\repos\LazyLoops\LazyLoops\obj\Debug\net6.0-windows\Views\
 C:\Users\KoeDev\source\repos\LazyLoops\LazyLoops\obj\Debug\net6.0-windows\App.baml
 C:\Users\KoeDev\source\repos\LazyLoops\LazyLoops\bin\Debug\net6.0-windows\LazyLoops.dll.config
 C:\Users\KoeDev\source\repos\LazyLoops\LazyLoops\bin\Debug\net6.0-windows\de-DE\LazyLoops.resources.dll
-C:\Users\KoeDev\source\repos\LazyLoops\LazyLoops\bin\Debug\net6.0-windows\Autofac.dll
 C:\Users\KoeDev\source\repos\LazyLoops\LazyLoops\bin\Debug\net6.0-windows\MediatR.dll
 C:\Users\KoeDev\source\repos\LazyLoops\LazyLoops\bin\Debug\net6.0-windows\MediatR.Contracts.dll
 C:\Users\KoeDev\source\repos\LazyLoops\LazyLoops\bin\Debug\net6.0-windows\Microsoft.Extensions.DependencyInjection.Abstractions.dll

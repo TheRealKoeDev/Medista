@@ -2,22 +2,6 @@
   "version": 3,
   "targets": {
     "net6.0-windows7.0": {
-      "Autofac/7.0.1": {
-        "type": "package",
-        "dependencies": {
-          "System.Diagnostics.DiagnosticSource": "4.7.1"
-        },
-        "compile": {
-          "lib/net6.0/Autofac.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/net6.0/Autofac.dll": {
-            "related": ".xml"
-          }
-        }
-      },
       "LiteDB/5.0.17": {
         "type": "package",
         "compile": {
@@ -884,7 +868,6 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "Autofac": "7.0.1",
           "LiteDB": "5.0.17",
           "MediatR": "12.1.1",
           "Microsoft.Extensions.Hosting": "7.0.1"
@@ -899,27 +882,6 @@
     }
   },
   "libraries": {
-    "Autofac/7.0.1": {
-      "sha512": "J9Iz0Q+YU3uf82i8Lee0NpQOlRYfwHxwVV26jdG3zH3LFE5Y9Rx97Mju7Nswwzh/C7kVJALkTL860Y7e+mcLaw==",
-      "type": "package",
-      "path": "autofac/7.0.1",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "README.md",
-        "autofac.7.0.1.nupkg.sha512",
-        "autofac.nuspec",
-        "icon.png",
-        "lib/net6.0/Autofac.dll",
-        "lib/net6.0/Autofac.xml",
-        "lib/net7.0/Autofac.dll",
-        "lib/net7.0/Autofac.xml",
-        "lib/netstandard2.0/Autofac.dll",
-        "lib/netstandard2.0/Autofac.xml",
-        "lib/netstandard2.1/Autofac.dll",
-        "lib/netstandard2.1/Autofac.xml"
-      ]
-    },
     "LiteDB/5.0.17": {
       "sha512": "cKPvkdlzIts3ZKu/BzoIc/Y71e4VFKlij4LyioPFATZMot+wB7EAm1FFbZSJez6coJmQUoIg/3yHE1MMU+zOdg==",
       "type": "package",

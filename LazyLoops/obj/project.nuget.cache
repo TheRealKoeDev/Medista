@@ -1,10 +1,9 @@
 {
   "version": 2,
-  "dgSpecHash": "KFc2/ZDW2HLYiUiI0CumcgvzQ+oBQOzRHBn8CVOPyB4gRM512zk880K7LsskaCMkl7NmXFdjG9DFP7WQMb89SQ==",
+  "dgSpecHash": "E4PjTpe82WEwJkcpKksr2pXODZZr4Kp+w0YNE7DsaZcatNzZaltbvILnlPxMvJuegym30weQHI9z/r7e4Zs30A==",
   "success": true,
   "projectFilePath": "C:\\Users\\KoeDev\\source\\repos\\LazyLoops\\LazyLoops\\LazyLoops.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\KoeDev\\.nuget\\packages\\autofac\\7.0.1\\autofac.7.0.1.nupkg.sha512",
     "C:\\Users\\KoeDev\\.nuget\\packages\\litedb\\5.0.17\\litedb.5.0.17.nupkg.sha512",
     "C:\\Users\\KoeDev\\.nuget\\packages\\materialdesigncolors\\2.1.4\\materialdesigncolors.2.1.4.nupkg.sha512",
     "C:\\Users\\KoeDev\\.nuget\\packages\\materialdesignthemes\\4.9.0\\materialdesignthemes.4.9.0.nupkg.sha512",

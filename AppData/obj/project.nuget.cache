@@ -1,10 +1,9 @@
 {
   "version": 2,
-  "dgSpecHash": "BT1sFw//dy2lU/lofsSRVCGeuz7eXAWB/2AmZM0pSAJr278Y9s0Z67qWqJpYWmN6nYDkWhpJGst0+d+g5WoLbg==",
+  "dgSpecHash": "myFxE1pui9WfDetbWMh9H0uL1c016dh00QO0rBISA6hGbCv1rENISxHh1/s8WLFL5j1ClPSdhJ7xhdoubwBAzQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\KoeDev\\source\\repos\\LazyLoops\\AppData\\AppData.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\KoeDev\\.nuget\\packages\\autofac\\7.0.1\\autofac.7.0.1.nupkg.sha512",
     "C:\\Users\\KoeDev\\.nuget\\packages\\litedb\\5.0.17\\litedb.5.0.17.nupkg.sha512",
     "C:\\Users\\KoeDev\\.nuget\\packages\\mediatr\\12.1.1\\mediatr.12.1.1.nupkg.sha512",
     "C:\\Users\\KoeDev\\.nuget\\packages\\mediatr.contracts\\2.0.1\\mediatr.contracts.2.0.1.nupkg.sha512",
