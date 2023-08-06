@@ -9,7 +9,6 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
     xmlns:viewmodels="clr-namespace:LazyLoops.ViewModels"
-    xmlns:translation="clr-namespace:LazyLoops.Localization.MainWindowTitleBar"
     xmlns:lex="http://wpflocalizeextension.codeplex.com"
     lex:ResxLocalizationProvider.DefaultAssembly="LazyLoops"
     lex:ResxLocalizationProvider.DefaultDictionary="MainWindowTitleBar"
@@ -39,7 +38,7 @@
         </Button>
         <Button
             x:Name="MinButton"
-            Click="MinimizeButtonClick"
+            Command="{Binding MinimizeWindowCommand, ElementName=View}"
             DockPanel.Dock="Right"
             Style="{StaticResource MainTitleBarButtonStyle}">
             <materialDesign:PackIcon Kind="WindowMinimize" />

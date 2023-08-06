@@ -1,49 +1,57 @@
 ﻿// Test Header
 
-using LazyLoops.Localization.MainWindowTitleBar;
-using LazyLoops.Utils;
-using System.Reflection;
 using System.Threading;
-using System.Windows;
-using System.Windows.Data;
-using WPFLocalizeExtension.Extensions;
+using WPFLocalizeExtension.Engine;
 
 namespace LazyLoops.Commands
 {
     public class SetCultureCommand : BaseCommand
     {
-        private readonly Window _oldWindow = Application.Current.MainWindow;
-        private readonly string _culture;
+        private static readonly string _fallbackCulture = "en-US";
 
-        public SetCultureCommand(string? culture)
+        private readonly string _cultureCode;
+
+        public SetCultureCommand(string cultureCode)
         {
-            _culture = culture ?? "en-US";
+            _cultureCode = cultureCode;
         }
 
-        public override void Execute(object? parameter)
+        public override void Execute(object? parameter = null)
         {
-            if (_culture == Properties.Settings.Default.CurrentCulture)
+            System.Globalization.CultureInfo cuture = GetAvailableCulture(_cultureCode);
+
+            Thread.CurrentThread.CurrentUICulture = cuture;
+            Thread.CurrentThread.CurrentCulture = cuture;
+
+            LocalizeDictionary.Instance.Culture = cuture;
+
+            Properties.Settings.Default.CurrentCulture = cuture.Name;
+            Properties.Settings.Default.Save();
+        }
+
+        private static System.Globalization.CultureInfo GetAvailableCulture(string? cultureCode)
+        {
+            if(cultureCode == null)
             {
-                return;
+                return new System.Globalization.CultureInfo(_fallbackCulture);
             }
 
-            Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo(_culture);
-            Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo(_culture);
-
-
-            Properties.Settings.Default.CurrentCulture = _culture;
-            Properties.Settings.Default.Save();
-
-            var test123 = Application.ResourceAssembly.GetManifestResourceNames();
-
-
-            foreach (string resourceName in Application.ResourceAssembly.GetManifestResourceNames())
+            bool cultureIsAvailable = Properties.Settings.Default.AvailableLanguages.Contains(cultureCode);
+            if (cultureIsAvailable)
             {
-                if (!resourceName.StartsWith($"{nameof(LazyLoops)}.{nameof(Localization)}"))
+                return new System.Globalization.CultureInfo(cultureCode);
+            }
+
+            string culturePrefix = cultureCode.Split("-")[0];
+            foreach (string? availableCulture in Properties.Settings.Default.AvailableLanguages)
+            {
+                if (availableCulture != null && availableCulture.StartsWith(culturePrefix))
                 {
-                    continue;
+                    return new System.Globalization.CultureInfo(cultureCode);
                 }
             }
+
+            return new System.Globalization.CultureInfo(_fallbackCulture);
         }
     }
 }

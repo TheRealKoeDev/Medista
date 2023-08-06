@@ -7,7 +7,6 @@
         mc:Ignorable="d"
         Style="{DynamicResource MainWindowStyle}"
         xmlns:lex="http://wpflocalizeextension.codeplex.com"
-        lex:LocalizeDictionary.DesignCulture="en"
         lex:ResxLocalizationProvider.DefaultAssembly="AssemblyTestResourceLib"
         lex:ResxLocalizationProvider.DefaultDictionary="Strings"
 >

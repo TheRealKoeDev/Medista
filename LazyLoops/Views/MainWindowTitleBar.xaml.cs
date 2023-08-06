@@ -6,6 +6,7 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using LazyLoops.Commands;
 using LazyLoops.Utils;
+using System.Threading;
 
 namespace LazyLoops.Views
 {
@@ -14,10 +15,11 @@ namespace LazyLoops.Views
     /// </summary>
     public partial class WindowTitleBar : Border
     {
-        private Window Window;
+        private Window? Window;
 
         public static CloseApplicationCommand CloseApplicationCommand => new();
         public static ToggleWindowMaximizationCommand ToggleWindowMaximizationCommand => new(Application.Current.MainWindow);
+        public static MinimizeWindowCommand MinimizeWindowCommand => new(Application.Current.MainWindow);
 
         public WindowTitleBar()
         {
@@ -36,11 +38,6 @@ namespace LazyLoops.Views
             UpdateMaximizationToggleIcon();
 
             Window.StateChanged += UpdateMaximizationToggleIcon;
-        }
-
-        public void MinimizeButtonClick(object sender, RoutedEventArgs args)
-        {
-            Window.WindowState = WindowState.Minimized;
         }
 
         private void CurrentCultureButtonClick(object sender, RoutedEventArgs args)
@@ -62,11 +59,16 @@ namespace LazyLoops.Views
 
             string? selectedCulture = selectedLanguageElement.Tag as string;
             // TODO: Refactor to use in xaml directly
-            new SetCultureCommand(selectedCulture).Execute(null);
+            new SetCultureCommand(selectedCulture ?? Thread.CurrentThread.CurrentUICulture.Name).Execute();
         }
 
         public void UpdateMaximizationToggleIcon(object? sender = null, EventArgs? args = null)
         {
+            if (Window == null)
+            {
+                return;
+            }
+
             PackIconKind toggleMaximizationIcon = Window.WindowState == WindowState.Maximized ? PackIconKind.WindowRestore : PackIconKind.WindowMaximize;
             MaxButton.Content = new PackIcon { Kind = toggleMaximizationIcon };
         }

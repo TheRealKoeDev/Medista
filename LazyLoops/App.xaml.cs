@@ -1,9 +1,7 @@
-﻿using LazyLoops.Utils;
-using Microsoft.Extensions.DependencyInjection;
-using System.Globalization;
+﻿using LazyLoops.Commands;
+using LazyLoops.Utils;
 using System.Threading;
 using System.Windows;
-using WPFLocalizeExtension.Engine;
 
 namespace LazyLoops
 {
@@ -17,20 +15,8 @@ namespace LazyLoops
             AppData.Utils.Container.Register(AppContainerBuilder.RegisterViewModels);
             AppData.Utils.Container.Build();
 
-            string currentCulture = LazyLoops.Properties.Settings.Default.CurrentCulture;
-            if (currentCulture != null)
-            {
-                Thread.CurrentThread.CurrentUICulture = new CultureInfo(currentCulture);
-            }
-            else
-            {
-                Thread.CurrentThread.CurrentUICulture = new CultureInfo("en-US");
-            }
-
-            LocalizeDictionary.Instance.Culture = Thread.CurrentThread.CurrentUICulture;
-
-
-            LazyLoops.Properties.Settings.Default.Save();
+            SetCultureCommand setCultureCommand = new(LazyLoops.Properties.Settings.Default.CurrentCulture ?? Thread.CurrentThread.CurrentUICulture.Name);
+            setCultureCommand.Execute();     
 
             new MainWindow().Show();
 
