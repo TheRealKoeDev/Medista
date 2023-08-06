@@ -10,9 +10,13 @@
     xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
     xmlns:viewmodels="clr-namespace:LazyLoops.ViewModels"
     xmlns:translation="clr-namespace:LazyLoops.Localization.MainWindowTitleBar"
+    xmlns:lex="http://wpflocalizeextension.codeplex.com"
+    lex:ResxLocalizationProvider.DefaultAssembly="LazyLoops"
+    lex:ResxLocalizationProvider.DefaultDictionary="MainWindowTitleBar"
     d:DataContext="{d:DesignInstance Type=viewmodels:ViewModel}"
     BorderThickness="0 0 0 4"
-    BorderBrush="{DynamicResource MaterialDesignLightSeparatorBackground}">
+    BorderBrush="{DynamicResource MaterialDesignLightSeparatorBackground}"
+ >
     <Border.Resources>
         <ResourceDictionary Source="../Styles/MainTitleBarButtonStyle.xaml" />
     </Border.Resources>
@@ -49,11 +53,11 @@
             <MenuItem.ContextMenu>
                 <ContextMenu>
                     <MenuItem
-                        Header="{x:Static translation:MainWindowTitleBar.English}"
+                        Header="{lex:Loc Key=English}"
                         Click="ChangeCultureClick"
                         Tag="en-US" />
                     <MenuItem
-                        Header="{x:Static translation:MainWindowTitleBar.German}"
+                        Header="{lex:Loc Key=German}"
                         Click="ChangeCultureClick"
                         Tag="de-DE" />
                 </ContextMenu>

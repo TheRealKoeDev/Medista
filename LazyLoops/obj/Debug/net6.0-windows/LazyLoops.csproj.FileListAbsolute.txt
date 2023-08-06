@@ -45,3 +45,14 @@ C:\Users\KoeDev\source\repos\LazyLoops\LazyLoops\obj\Debug\net6.0-windows\de-DE\
 C:\Users\KoeDev\source\repos\LazyLoops\LazyLoops\obj\Debug\net6.0-windows\GeneratedInternalTypeHelper.g.cs
 C:\Users\KoeDev\source\repos\LazyLoops\LazyLoops\obj\Debug\net6.0-windows\LazyLoops.Localization.MainWindowTitleBar.MainWindowTitleBar.resources
 C:\Users\KoeDev\source\repos\LazyLoops\LazyLoops\obj\Debug\net6.0-windows\LazyLoops.Localization.MainWindowTitleBar.MainWindowTitleBar.de-DE.resources
+C:\Users\KoeDev\source\repos\LazyLoops\LazyLoops\bin\Debug\net6.0-windows\Localization\MainWindowTitleBar\MainWindowTitleBar.resx
+C:\Users\KoeDev\source\repos\LazyLoops\LazyLoops\bin\Debug\net6.0-windows\Localization\MainWindowTitleBar\MainWindowTitleBar.de-DE.resx
+C:\Users\KoeDev\source\repos\LazyLoops\LazyLoops\bin\Debug\net6.0-windows\Microsoft.Win32.SystemEvents.dll
+C:\Users\KoeDev\source\repos\LazyLoops\LazyLoops\bin\Debug\net6.0-windows\System.CodeDom.dll
+C:\Users\KoeDev\source\repos\LazyLoops\LazyLoops\bin\Debug\net6.0-windows\System.Drawing.Common.dll
+C:\Users\KoeDev\source\repos\LazyLoops\LazyLoops\bin\Debug\net6.0-windows\System.Management.dll
+C:\Users\KoeDev\source\repos\LazyLoops\LazyLoops\bin\Debug\net6.0-windows\WPFLocalizeExtension.dll
+C:\Users\KoeDev\source\repos\LazyLoops\LazyLoops\bin\Debug\net6.0-windows\XAMLMarkupExtensions.dll
+C:\Users\KoeDev\source\repos\LazyLoops\LazyLoops\bin\Debug\net6.0-windows\runtimes\win\lib\net6.0\Microsoft.Win32.SystemEvents.dll
+C:\Users\KoeDev\source\repos\LazyLoops\LazyLoops\bin\Debug\net6.0-windows\runtimes\win\lib\net6.0\System.Drawing.Common.dll
+C:\Users\KoeDev\source\repos\LazyLoops\LazyLoops\bin\Debug\net6.0-windows\runtimes\win\lib\net6.0\System.Management.dll

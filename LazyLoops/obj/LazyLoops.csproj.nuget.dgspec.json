@@ -140,6 +140,10 @@
             "MediatR": {
               "target": "Package",
               "version": "[12.1.1, )"
+            },
+            "WPFLocalizeExtension": {
+              "target": "Package",
+              "version": "[3.10.0, )"
             }
           },
           "imports": [

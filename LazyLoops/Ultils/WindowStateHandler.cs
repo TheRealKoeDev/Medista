@@ -13,13 +13,13 @@ namespace LazyLoops.Utils
         {
             if (_window != null)
             {
-                _window.Closing -= WindowClosing;
+                _window.Closing -= StoreWindowState;
                 GlobalKeyPressInterceptor.KeyPressed -= KeyPressed;
                 Microsoft.Win32.SystemEvents.DisplaySettingsChanged -= DisplaySizeChanged;
             }
 
             _window = window;
-            _window.Closing += WindowClosing;
+            _window.Closing += StoreWindowState;
 
             GlobalKeyPressInterceptor.KeyPressed += KeyPressed;
             Microsoft.Win32.SystemEvents.DisplaySettingsChanged += DisplaySizeChanged;
@@ -36,6 +36,26 @@ namespace LazyLoops.Utils
 
             bool isMaximized = _window.WindowState == WindowState.Maximized;
             _window.WindowState = isMaximized ? WindowState.Normal : WindowState.Maximized;
+        }
+
+        public static void StoreWindowState(object? sender = null, EventArgs? args = null)
+        {
+
+            bool isMinimized = _window?.WindowState == WindowState.Minimized;
+            Properties.Settings.Default.WindowState = isMinimized ? WindowState.Normal.ToString("G") : _window?.WindowState.ToString("G");
+
+            if (_window?.WindowState == WindowState.Normal)
+            {
+                Properties.Settings.Default.WindowLocation = new System.Drawing.Point((int)_window.Left, (int)_window.Top);
+                Properties.Settings.Default.WindowSize = new System.Drawing.Size((int)_window.Width, (int)_window.Height);
+            }
+            else
+            {
+                Properties.Settings.Default.WindowLocation = new System.Drawing.Point((int)(_window?.RestoreBounds.Location.X ?? 0), (int)(_window?.RestoreBounds.Location.Y ?? 0));
+                Properties.Settings.Default.WindowSize = new System.Drawing.Size((int)(_window?.RestoreBounds.Size.Width ?? 0), (int)(_window?.RestoreBounds.Size.Height ?? 0));
+            }
+
+            Properties.Settings.Default.Save();
         }
 
         private static void LoadWindowDimensions()
@@ -59,26 +79,6 @@ namespace LazyLoops.Utils
                 _window.Left = Properties.Settings.Default.WindowLocation.X;
                 _window.Top = Properties.Settings.Default.WindowLocation.Y;
             }
-        }
-
-        private static void WindowClosing(object sender, EventArgs args)
-        {
-
-            bool isMinimized = _window?.WindowState == WindowState.Minimized;
-            Properties.Settings.Default.WindowState = isMinimized ? WindowState.Normal.ToString("G") : _window?.WindowState.ToString("G");
-
-            if (_window?.WindowState == WindowState.Normal)
-            {
-                Properties.Settings.Default.WindowLocation = new System.Drawing.Point((int)_window.Left, (int)_window.Top);
-                Properties.Settings.Default.WindowSize = new System.Drawing.Size((int)_window.Width, (int)_window.Height);
-            }
-            else
-            {
-                Properties.Settings.Default.WindowLocation = new System.Drawing.Point((int)(_window?.RestoreBounds.Location.X ?? 0), (int)(_window?.RestoreBounds.Location.Y ?? 0));
-                Properties.Settings.Default.WindowSize = new System.Drawing.Size((int)(_window?.RestoreBounds.Size.Width ?? 0), (int)(_window?.RestoreBounds.Size.Height ?? 0));
-            }
-
-            Properties.Settings.Default.Save();
         }
 
         private static void DisplaySizeChanged(object sender, EventArgs args)

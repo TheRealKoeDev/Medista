@@ -1,7 +1,12 @@
 ﻿// Test Header
 
+using LazyLoops.Localization.MainWindowTitleBar;
+using LazyLoops.Utils;
+using System.Reflection;
 using System.Threading;
 using System.Windows;
+using System.Windows.Data;
+using WPFLocalizeExtension.Extensions;
 
 namespace LazyLoops.Commands
 {
@@ -17,15 +22,28 @@ namespace LazyLoops.Commands
 
         public override void Execute(object? parameter)
         {
+            if (_culture == Properties.Settings.Default.CurrentCulture)
+            {
+                return;
+            }
+
             Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo(_culture);
-        
+            Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo(_culture);
+
+
             Properties.Settings.Default.CurrentCulture = _culture;
             Properties.Settings.Default.Save();
 
-            Application.Current.MainWindow = new MainWindow();
-            Application.Current.MainWindow.Show();
+            var test123 = Application.ResourceAssembly.GetManifestResourceNames();
 
-            _oldWindow.Close();
+
+            foreach (string resourceName in Application.ResourceAssembly.GetManifestResourceNames())
+            {
+                if (!resourceName.StartsWith($"{nameof(LazyLoops)}.{nameof(Localization)}"))
+                {
+                    continue;
+                }
+            }
         }
     }
 }
