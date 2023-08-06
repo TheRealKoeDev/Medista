@@ -1,6 +1,7 @@
 ﻿// Test Header
 
-using Autofac;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 using System;
 using System.Linq;
 using System.Reflection;
@@ -11,17 +12,25 @@ namespace LazyLoops.Utils
     {
         private static Type[] SingletonTypes => Array.Empty<Type>();
 
-        public static void RegisterViewModels(ContainerBuilder builder)
+        public static void RegisterViewModels(IServiceCollection serviceCollection)
         {
+            Type[] assemblyTypes = Assembly.GetExecutingAssembly().GetTypes();
+
             foreach (Type singletonType in SingletonTypes)
             {
-                builder.RegisterType(singletonType).SingleInstance();
+                serviceCollection.AddSingleton(singletonType);
             }
 
-            builder.RegisterAssemblyTypes(Assembly.GetExecutingAssembly()).Where(IsTransientViewModel);
-            builder.RegisterAssemblyOpenGenericTypes(Assembly.GetExecutingAssembly()).Where(IsCommand);
-        }
+            foreach (Type transientType in assemblyTypes.Where(IsTransientViewModel))
+            {
+                serviceCollection.AddTransient(transientType);
+            }
 
+            foreach (Type commantType in assemblyTypes.Where(IsCommand))
+            {
+                serviceCollection.AddTransient(commantType);
+            }
+        }
         private static bool IsTransientViewModel(Type type)
         {
             bool isSingleton = SingletonTypes.Contains(type);
