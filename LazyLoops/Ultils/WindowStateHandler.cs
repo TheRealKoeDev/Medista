@@ -58,7 +58,7 @@ namespace LazyLoops.Utils
 
         private static void LoadWindowDimensions()
         {
-            _window.WindowState = Enum.TryParse(Properties.Settings.Default.WindowState, false, out WindowState windowState) ? windowState : WindowState.Normal;
+            _window!.WindowState = Enum.TryParse(Properties.Settings.Default.WindowState, false, out WindowState windowState) ? windowState : WindowState.Normal;
 
             if (Properties.Settings.Default.WindowSize.IsEmpty)
             {
@@ -73,7 +73,7 @@ namespace LazyLoops.Utils
             }
         }
 
-        private static void DisplaySizeChanged(object sender, EventArgs args)
+        private static void DisplaySizeChanged(object? sender, EventArgs? args)
         {
             Size workingAreaSize = GetCurrentWorkingAreaSize();
             ResetWindowPositionAndSize(workingAreaSize);

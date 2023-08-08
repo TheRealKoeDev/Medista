@@ -80,7 +80,14 @@
 
             <materialDesign:PackIcon Kind="Web" />
         </Button>
-        
+
+        <Button
+            Command="{Binding CloseApplicationCommand}"
+            DockPanel.Dock="Left"
+            Style="{StaticResource MainTitleBarButtonStyle}"
+        >
+            <materialDesign:PackIcon Kind="Menu" />
+        </Button>
         <TextBlock
             DockPanel.Dock="Left"
             HorizontalAlignment="Left"

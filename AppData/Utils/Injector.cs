@@ -38,9 +38,7 @@ namespace AppData.Utils
                 throw new TypeLoadException("Build must be called first");
             }
 
-#pragma warning disable CS8603 // Possible null reference return.
-            return _host.Services!.GetService(type);
-#pragma warning restore CS8603 // Possible null reference return.
+            return _host.Services!.GetService(type)!;
         }
 
         public static void Build()
@@ -64,7 +62,7 @@ namespace AppData.Utils
             _hostBuilder.ConfigureServices(action);
         }
 
-        private static void CurrentDomain_ProcessExit(object sender, EventArgs e)
+        private static void CurrentDomain_ProcessExit(object? sender, EventArgs? e)
         {
             _host?.Dispose();
         }

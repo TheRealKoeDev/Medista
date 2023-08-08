@@ -4,9 +4,7 @@ using System.ComponentModel;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
-using LazyLoops.Commands;
 using LazyLoops.Utils;
-using System.Threading;
 using LazyLoops.ViewModels;
 using AppData.Utils;
 
