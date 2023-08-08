@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 
 namespace LazyLoops.ViewModels
 {
-    public sealed class MainViewModel : ViewModel
+    public sealed class MainWindowViewModel : ViewModel
     {
         private ViewModel _currentViewModel = Injector.Get<DashboardViewModel>();
 
@@ -19,7 +19,7 @@ namespace LazyLoops.ViewModels
         {
             await viewModel.Initialize();
 
-            MainViewModel mainViewModel = Injector.Get<MainViewModel>();
+            MainWindowViewModel mainViewModel = Injector.Get<MainWindowViewModel>();
             mainViewModel.CurrentViewModel = viewModel ?? throw new ArgumentException($"The parameter {nameof(viewModel)} can't be null.");
             CurrentViewModelChanged?.Invoke(mainViewModel, new EventArgs());
         }

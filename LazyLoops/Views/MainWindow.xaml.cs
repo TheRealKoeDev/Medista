@@ -13,7 +13,7 @@ namespace LazyLoops
         {
             WindowStateHandler.Initialize(this);
 
-            DataContext = AppData.Utils.Injector.Get<MainViewModel>();
+            DataContext = AppData.Utils.Injector.Get<MainWindowViewModel>();
 
             InitializeComponent();
         }

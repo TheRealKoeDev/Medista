@@ -11,12 +11,6 @@ namespace LazyLoops.Utils
 
         public static void Initialize(Window window)
         {
-            if (_window != null)
-            {
-                _window.Closing -= StoreWindowState;
-                GlobalKeyPressInterceptor.KeyPressed -= KeyPressed;
-                Microsoft.Win32.SystemEvents.DisplaySettingsChanged -= DisplaySizeChanged;
-            }
 
             _window = window;
             _window.Closing += StoreWindowState;
@@ -40,6 +34,10 @@ namespace LazyLoops.Utils
 
         public static void StoreWindowState(object? sender = null, EventArgs? args = null)
         {
+            if (_window == null)
+            {
+                return;
+            }
 
             bool isMinimized = _window?.WindowState == WindowState.Minimized;
             Properties.Settings.Default.WindowState = isMinimized ? WindowState.Normal.ToString("G") : _window?.WindowState.ToString("G");
@@ -60,11 +58,6 @@ namespace LazyLoops.Utils
 
         private static void LoadWindowDimensions()
         {
-            if (_window == null)
-            {
-                return;
-            }
-
             _window.WindowState = Enum.TryParse(Properties.Settings.Default.WindowState, false, out WindowState windowState) ? windowState : WindowState.Normal;
 
             if (Properties.Settings.Default.WindowSize.IsEmpty)

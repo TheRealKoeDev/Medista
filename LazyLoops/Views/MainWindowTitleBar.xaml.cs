@@ -7,22 +7,21 @@ using System.Windows.Input;
 using LazyLoops.Commands;
 using LazyLoops.Utils;
 using System.Threading;
+using LazyLoops.ViewModels;
+using AppData.Utils;
 
 namespace LazyLoops.Views
 {
     /// <summary>
-    /// Interaction logic for WindowTitleBar.xaml
+    /// Interaction logic for MainWindowTitleBar.xaml
     /// </summary>
-    public partial class WindowTitleBar : Border
+    public partial class MainWindowTitleBar: UserControl
     {
         private Window? Window;
 
-        public static CloseApplicationCommand CloseApplicationCommand => new();
-        public static ToggleWindowMaximizationCommand ToggleWindowMaximizationCommand => new(Application.Current.MainWindow);
-        public static MinimizeWindowCommand MinimizeWindowCommand => new(Application.Current.MainWindow);
-
-        public WindowTitleBar()
+        public MainWindowTitleBar()
         {
+            DataContext = Injector.Get<MainWindowTitleBarViewModel>();
             if (!DesignerProperties.GetIsInDesignMode(this))
             {
                 Loaded += TitleBarLoaded;
@@ -38,23 +37,6 @@ namespace LazyLoops.Views
             UpdateMaximizationToggleIcon();
 
             Window.StateChanged += UpdateMaximizationToggleIcon;
-        }
-
-        private void ChangeCultureClick(object sender, RoutedEventArgs args)
-        {
-            if (sender is not FrameworkElement selectedLanguageElement)
-            {
-                return;
-            }
-
-            string? selectedCulture = selectedLanguageElement.Tag as string;
-            if (selectedCulture == null)
-            {
-                return;
-            }
-
-            // TODO: Refactor to use in xaml directly problem = DataContext
-            new SetCultureCommand(selectedCulture ?? Thread.CurrentThread.CurrentUICulture.Name).Execute();
         }
 
         public void UpdateMaximizationToggleIcon(object? sender = null, EventArgs? args = null)

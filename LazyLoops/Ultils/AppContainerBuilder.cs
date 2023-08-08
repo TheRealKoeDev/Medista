@@ -1,7 +1,7 @@
 ﻿// Test Header
 
+using LazyLoops.ViewModels;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
 using System;
 using System.Linq;
 using System.Reflection;
@@ -10,7 +10,10 @@ namespace LazyLoops.Utils
 {
     public static class AppContainerBuilder
     {
-        private static Type[] SingletonTypes => Array.Empty<Type>();
+        private static Type[] SingletonTypes => new Type[] {
+            typeof(MainWindowViewModel),
+            typeof(MainWindowTitleBarViewModel),
+        };
 
         public static void RegisterViewModels(IServiceCollection serviceCollection)
         {
@@ -31,6 +34,7 @@ namespace LazyLoops.Utils
                 serviceCollection.AddTransient(commantType);
             }
         }
+
         private static bool IsTransientViewModel(Type type)
         {
             bool isSingleton = SingletonTypes.Contains(type);
