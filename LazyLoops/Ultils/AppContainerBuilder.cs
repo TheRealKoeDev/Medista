@@ -1,8 +1,8 @@
 ﻿// Test Header
 
 using AppData.Utils;
-using LazyLoops.Ultils;
-using LazyLoops.ViewModels;
+using Medista.Ultils;
+using Medista.ViewModels;
 using LinqToDB;
 using Microsoft.Extensions.DependencyInjection;
 using System;
@@ -11,7 +11,7 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 
-namespace LazyLoops.Utils
+namespace Medista.Utils
 {
     public static class AppContainerBuilder
     {
@@ -50,14 +50,14 @@ namespace LazyLoops.Utils
         private static bool IsTransientViewModel(Type type)
         {
             bool isSingleton = SingletonTypes.Contains(type);
-            bool containsViewModelNamespace = type.Namespace?.StartsWith($"{nameof(LazyLoops)}.{nameof(ViewModels)}") ?? false;
+            bool containsViewModelNamespace = type.Namespace?.StartsWith($"{nameof(Medista)}.{nameof(ViewModels)}") ?? false;
 
             return containsViewModelNamespace && !isSingleton && type.IsClass && !type.IsAbstract;
         }
 
         private static bool IsCommand(Type type)
         {
-            bool containsCommandNamespace = type.Namespace?.StartsWith($"{nameof(LazyLoops)}.{nameof(Commands)}") ?? false;
+            bool containsCommandNamespace = type.Namespace?.StartsWith($"{nameof(Medista)}.{nameof(Commands)}") ?? false;
 
             return containsCommandNamespace && type.IsClass && !type.IsAbstract;
         }

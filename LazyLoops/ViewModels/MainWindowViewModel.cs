@@ -2,7 +2,7 @@
 using System;
 using System.Threading.Tasks;
 
-namespace LazyLoops.ViewModels
+namespace Medista.ViewModels
 {
     public sealed class MainWindowViewModel : ViewModel
     {

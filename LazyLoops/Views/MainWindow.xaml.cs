@@ -1,8 +1,8 @@
-﻿using LazyLoops.Utils;
-using LazyLoops.ViewModels;
+﻿using Medista.Utils;
+using Medista.ViewModels;
 using System.Windows;
 
-namespace LazyLoops
+namespace Medista
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml

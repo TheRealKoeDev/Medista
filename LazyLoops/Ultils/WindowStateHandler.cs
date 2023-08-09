@@ -3,7 +3,7 @@ using System.Windows;
 using System.Windows.Forms;
 using System.Windows.Interop;
 
-namespace LazyLoops.Utils
+namespace Medista.Utils
 {
     public static class WindowStateHandler
     {

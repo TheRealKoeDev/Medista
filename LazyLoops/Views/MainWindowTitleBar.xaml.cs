@@ -4,11 +4,11 @@ using System.ComponentModel;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
-using LazyLoops.Utils;
-using LazyLoops.ViewModels;
+using Medista.Utils;
+using Medista.ViewModels;
 using AppData.Utils;
 
-namespace LazyLoops.Views
+namespace Medista.Views
 {
     /// <summary>
     /// Interaction logic for MainWindowTitleBar.xaml

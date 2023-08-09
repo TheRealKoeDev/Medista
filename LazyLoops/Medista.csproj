@@ -6,7 +6,7 @@
     <Nullable>enable</Nullable>
     <UseWPF>True</UseWPF>
     <UseWindowsForms>True</UseWindowsForms>
-    <StartupObject>LazyLoops.App</StartupObject>
+    <StartupObject>Medista.App</StartupObject>
     <ImplicitUsings>disable</ImplicitUsings>
   </PropertyGroup>
 

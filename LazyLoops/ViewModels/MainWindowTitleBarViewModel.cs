@@ -1,7 +1,7 @@
-﻿using LazyLoops.Commands;
+﻿using Medista.Commands;
 using System.Windows;
 
-namespace LazyLoops.ViewModels
+namespace Medista.ViewModels
 {
     public sealed class MainWindowTitleBarViewModel : ViewModel
     {

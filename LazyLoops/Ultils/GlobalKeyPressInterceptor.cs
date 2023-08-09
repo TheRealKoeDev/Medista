@@ -3,7 +3,7 @@ using System.Diagnostics;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
-namespace LazyLoops.Utils
+namespace Medista.Utils
 {
     public static class GlobalKeyPressInterceptor
     {

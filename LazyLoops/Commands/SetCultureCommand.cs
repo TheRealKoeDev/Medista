@@ -3,7 +3,7 @@
 using System.Threading;
 using WPFLocalizeExtension.Engine;
 
-namespace LazyLoops.Commands
+namespace Medista.Commands
 {
     public class SetCultureCommand : BaseCommand
     {

@@ -3,7 +3,7 @@ using MediatR;
 using System;
 using System.Windows.Input;
 
-namespace LazyLoops.Commands
+namespace Medista.Commands
 {
     public abstract class BaseCommand : ICommand, IDisposable
     {

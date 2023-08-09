@@ -2,7 +2,7 @@
 
 using System.Windows;
 
-namespace LazyLoops.Commands
+namespace Medista.Commands
 {
     public class CloseApplicationCommand : BaseCommand
     {

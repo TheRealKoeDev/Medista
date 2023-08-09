@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace LazyLoops.Properties {
+namespace Medista.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]

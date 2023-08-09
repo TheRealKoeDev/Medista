@@ -4,7 +4,7 @@ using System;
 using System.ComponentModel;
 using System.Threading.Tasks;
 
-namespace LazyLoops.ViewModels
+namespace Medista.ViewModels
 {
     public abstract class ViewModel : INotifyPropertyChanged, IDisposable
     {
