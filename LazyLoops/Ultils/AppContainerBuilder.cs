@@ -10,6 +10,7 @@ using System.Data;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using FluentMigrator.Runner;
 
 namespace Medista.Utils
 {
@@ -20,12 +21,22 @@ namespace Medista.Utils
             typeof(MainWindowTitleBarViewModel),
         };
 
-        public static void RegisterDatase(IServiceCollection serviceCollection)
+        public static void RegisterDatabase(IServiceCollection serviceCollection)
         {
+            string connectionString = $"Data Source={Path.Combine(AppFolderHandler.DataPath, "database.sqlite")}";
+
             Directory.CreateDirectory(AppFolderHandler.DataPath);
             serviceCollection.AddTransient(typeof(AppDatabaseConnection), (_services) =>
-                new AppDatabaseConnection(ProviderName.SQLite, $"Data Source={Path.Combine(AppFolderHandler.DataPath, "database.sqlite")}")
+                new AppDatabaseConnection(ProviderName.SQLite, connectionString)
             );
+
+            serviceCollection
+                .AddFluentMigratorCore()
+                .ConfigureRunner(builder =>
+                    builder.AddSQLite().WithGlobalConnectionString(connectionString).ScanIn(AppDomain.CurrentDomain.Load(nameof(AppData)))
+                 )
+                .AddLogging(lb => lb.AddFluentMigratorConsole())
+                .BuildServiceProvider(false);
         }
 
         public static void RegisterViewModels(IServiceCollection serviceCollection)
@@ -47,6 +58,7 @@ namespace Medista.Utils
                 serviceCollection.AddTransient(commantType);
             }
         }
+
         private static bool IsTransientViewModel(Type type)
         {
             bool isSingleton = SingletonTypes.Contains(type);
