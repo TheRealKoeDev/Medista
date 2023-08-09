@@ -1,5 +1,4 @@
 ﻿using System.Reflection;
-using AppData.Persistance;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -13,11 +12,6 @@ namespace AppData.Utils
         static Injector()
         {
             RegisterMediatorClasses(Assembly.GetExecutingAssembly());
-
-            _hostBuilder.ConfigureServices(constext => {
-                constext.AddSingleton(typeof(AppLightDbDatabase));
-            });
-
             AppDomain.CurrentDomain.ProcessExit += CurrentDomain_ProcessExit;
         }
 

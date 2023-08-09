@@ -1,8 +1,13 @@
 ﻿// Test Header
 
+using AppData.Utils;
+using LazyLoops.Ultils;
 using LazyLoops.ViewModels;
+using LinqToDB;
 using Microsoft.Extensions.DependencyInjection;
 using System;
+using System.Data;
+using System.IO;
 using System.Linq;
 using System.Reflection;
 
@@ -14,6 +19,14 @@ namespace LazyLoops.Utils
             typeof(MainWindowViewModel),
             typeof(MainWindowTitleBarViewModel),
         };
+
+        public static void RegisterDatase(IServiceCollection serviceCollection)
+        {
+            Directory.CreateDirectory(AppFolderHandler.DataPath);
+            serviceCollection.AddTransient(typeof(AppDatabaseConnection), (_services) =>
+                new AppDatabaseConnection(ProviderName.SQLite, $"Data Source={Path.Combine(AppFolderHandler.DataPath, "database.sqlite")}")
+            );
+        }
 
         public static void RegisterViewModels(IServiceCollection serviceCollection)
         {
@@ -34,7 +47,6 @@ namespace LazyLoops.Utils
                 serviceCollection.AddTransient(commantType);
             }
         }
-
         private static bool IsTransientViewModel(Type type)
         {
             bool isSingleton = SingletonTypes.Contains(type);

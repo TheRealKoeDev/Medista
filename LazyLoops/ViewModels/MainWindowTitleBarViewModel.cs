@@ -5,13 +5,13 @@ namespace LazyLoops.ViewModels
 {
     public sealed class MainWindowTitleBarViewModel : ViewModel
     {
-        public static CloseApplicationCommand CloseApplicationCommand => new();
-        public static ToggleWindowMaximizationCommand ToggleWindowMaximizationCommand => new(Application.Current.MainWindow);
-        public static MinimizeWindowCommand MinimizeWindowCommand => new(Application.Current.MainWindow);
+        public static CloseApplicationCommand CloseApplicationCommand => new CloseApplicationCommand();
+        public static ToggleWindowMaximizationCommand ToggleWindowMaximizationCommand => new ToggleWindowMaximizationCommand(Application.Current.MainWindow);
+        public static MinimizeWindowCommand MinimizeWindowCommand => new MinimizeWindowCommand(Application.Current.MainWindow);
 
         // TODO: Lern to use this as datacontext in ContextMenu
-        public static SetCultureCommand SetGermanCultureCommand => new("de-DE");
-        public static SetCultureCommand SetEnglishCultureCommand => new("en-US");
+        public static SetCultureCommand SetGermanCultureCommand => new SetCultureCommand("de-DE");
+        public static SetCultureCommand SetEnglishCultureCommand => new SetCultureCommand("en-US");
 
     }    
 }
