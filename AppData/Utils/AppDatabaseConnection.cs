@@ -1,8 +1,8 @@
-﻿using LinqToDB;
+﻿using LinqToDB.Data;
 
 namespace AppData.Utils
 {
-    public class AppDatabaseConnection : LinqToDB.Data.DataConnection
+    public class AppDatabaseConnection : DataConnection
     {
         public AppDatabaseConnection(string providerName, string connectionString) : base(providerName, connectionString)
         {

@@ -10,7 +10,7 @@
                 <materialDesign:BundledTheme BaseTheme="Dark" PrimaryColor="Green" SecondaryColor="Orange" />
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
                 <ResourceDictionary Source="Styles/MainContentStyle.xaml" />
-                <ResourceDictionary Source="Styles/TitleBarStyle.xaml" />
+                <ResourceDictionary Source="Styles/MainWindowTitleBarStyle.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

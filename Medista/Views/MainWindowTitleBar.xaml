@@ -1,0 +1,90 @@
+﻿<DockPanel
+    x:Class="Medista.Views.MainWindowTitleBar"
+    d:DataContext="{d:DesignInstance Type=viewmodels:MainWindowTitleBarViewModel}"
+    mc:Ignorable="d"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+    xmlns:viewmodels="clr-namespace:Medista.ViewModels"
+    xmlns:lex="http://wpflocalizeextension.codeplex.com"
+    xmlns:System="clr-namespace:System;assembly=netstandard"
+    lex:ResxLocalizationProvider.DefaultAssembly="Medista"
+    lex:ResxLocalizationProvider.DefaultDictionary="MainWindowTitleBar"
+    MouseDown="TitleBarMouseDown"
+    Style="{StaticResource MainWindowTitleBarStyle}"
+ >
+    <DockPanel.Resources>
+        <ResourceDictionary Source="../Styles/MainWindowTitleBarStyle.xaml" />
+    </DockPanel.Resources>
+
+    <UserControl DockPanel.Dock="Bottom" Style="{StaticResource BottomBorder}"></UserControl>
+    <Button
+        Command="{Binding CloseApplicationCommand}"
+        DockPanel.Dock="Right"          
+    >
+        <materialDesign:PackIcon Kind="WindowClose" />
+    </Button>
+    <Button
+        x:Name="MaxButton"
+        Command="{Binding ToggleWindowMaximizationCommand}"
+        DockPanel.Dock="Right"
+    >
+        <materialDesign:PackIcon Kind="WindowMaximize" />
+    </Button>
+    <Button
+        x:Name="MinButton"
+        Command="{Binding MinimizeWindowCommand}"
+        DockPanel.Dock="Right"
+    >
+        <materialDesign:PackIcon Kind="WindowMinimize" />
+    </Button>
+    <Button x:Name="LanguageButton" DockPanel.Dock="Right">
+        <Button.ContextMenu>
+            <ContextMenu x:Name="LanguageButtonContextMenu">
+                <ContextMenu.DataContext>
+                    <!-- TODO: Inherit the datacontext instead of creating a new one -->
+                    <viewmodels:MainWindowTitleBarViewModel></viewmodels:MainWindowTitleBarViewModel>
+                </ContextMenu.DataContext>
+                <MenuItem
+                    Header="{lex:Loc Key=English}"
+                    Command="{Binding DataContext.SetEnglishCultureCommand, RelativeSource={RelativeSource AncestorType=ContextMenu}}"
+                />
+                <MenuItem
+                    Header="{lex:Loc Key=German}"
+                    Command="{Binding DataContext.SetGermanCultureCommand, RelativeSource={RelativeSource AncestorType=ContextMenu}}"
+                />
+            </ContextMenu>
+        </Button.ContextMenu>
+        <Button.Triggers>
+            <EventTrigger SourceName="LanguageButton" RoutedEvent="Button.Click">
+                <BeginStoryboard>
+                    <Storyboard>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="LanguageButtonContextMenu" Storyboard.TargetProperty="(ContextMenu.IsOpen)">
+                            <DiscreteObjectKeyFrame KeyTime="0:0:0">
+                                <DiscreteObjectKeyFrame.Value>
+                                    <System:Boolean>True</System:Boolean>
+                                </DiscreteObjectKeyFrame.Value>
+                            </DiscreteObjectKeyFrame>
+                        </ObjectAnimationUsingKeyFrames>
+                    </Storyboard>
+                </BeginStoryboard>
+            </EventTrigger>
+        </Button.Triggers>
+
+        <materialDesign:PackIcon Kind="Web" />
+    </Button>
+
+    <Button
+        Command="{Binding CloseApplicationCommand}"
+        DockPanel.Dock="Left"
+    >
+        <materialDesign:PackIcon Kind="Menu" />
+    </Button>
+    <TextBlock
+        DockPanel.Dock="Left"
+        Text="Medista"
+    >
+    </TextBlock>
+</DockPanel>
