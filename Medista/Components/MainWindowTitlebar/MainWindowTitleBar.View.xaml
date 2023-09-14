@@ -1,4 +1,4 @@
-﻿<DockPanel
+﻿<UserControl
     x:Class="Medista.Components.MainWindowTitlebar.MainWindowTitleBarView"
     d:DataContext="{d:DesignInstance Type=component:MainWindowTitleBarViewModel}"
     mc:Ignorable="d"
@@ -12,79 +12,79 @@
     xmlns:System="clr-namespace:System;assembly=netstandard"    
     lex:ResxLocalizationProvider.DefaultAssembly="Medista"
     lex:ResxLocalizationProvider.DefaultDictionary="MainWindowTitleBar"
-    MouseDown="TitleBarMouseDown"
-    Style="{StaticResource MainWindowTitleBarStyle}"
- >
-    <DockPanel.Resources>
+    MouseDown="TitleBarMouseDown"    
+>
+    <UserControl.Resources>
         <ResourceDictionary Source="MainWindowTitleBar.Style.xaml" />
-    </DockPanel.Resources>
-
-    <UserControl DockPanel.Dock="Bottom" Style="{StaticResource BottomBorder}"></UserControl>
-    <Button
+    </UserControl.Resources>
+    <DockPanel Style="{StaticResource MainWindowTitleBarStyle}">
+        <UserControl DockPanel.Dock="Bottom" Style="{StaticResource BottomBorder}"></UserControl>
+        <Button
         Command="{Binding CloseApplicationCommand}"
         DockPanel.Dock="Right"          
     >
-        <materialDesign:PackIcon Kind="WindowClose" />
-    </Button>
-    <Button
+            <materialDesign:PackIcon Kind="WindowClose" />
+        </Button>
+        <Button
         x:Name="MaxButton"
         Command="{Binding ToggleWindowMaximizationCommand}"
         DockPanel.Dock="Right"
     >
-        <materialDesign:PackIcon Kind="WindowMaximize" />
-    </Button>
-    <Button
+            <materialDesign:PackIcon Kind="WindowMaximize" />
+        </Button>
+        <Button
         x:Name="MinButton"
         Command="{Binding MinimizeWindowCommand}"
         DockPanel.Dock="Right"
     >
-        <materialDesign:PackIcon Kind="WindowMinimize" />
-    </Button>
-    <Button x:Name="LanguageButton" DockPanel.Dock="Right">
-        <Button.ContextMenu>
-            <ContextMenu x:Name="LanguageButtonContextMenu">
-                <ContextMenu.DataContext>
-                    <!-- TODO: Inherit the datacontext instead of creating a new one -->
-                    <component:MainWindowTitleBarViewModel></component:MainWindowTitleBarViewModel>
-                </ContextMenu.DataContext>
-                <MenuItem
+            <materialDesign:PackIcon Kind="WindowMinimize" />
+        </Button>
+        <Button x:Name="LanguageButton" DockPanel.Dock="Right">
+            <Button.ContextMenu>
+                <ContextMenu x:Name="LanguageButtonContextMenu">
+                    <ContextMenu.DataContext>
+                        <!-- TODO: Inherit the datacontext instead of creating a new one -->
+                        <component:MainWindowTitleBarViewModel></component:MainWindowTitleBarViewModel>
+                    </ContextMenu.DataContext>
+                    <MenuItem
                     Header="{lex:Loc Key=English}"
                     Command="{Binding DataContext.SetEnglishCultureCommand, RelativeSource={RelativeSource AncestorType=ContextMenu}}"
                 />
-                <MenuItem
+                    <MenuItem
                     Header="{lex:Loc Key=German}"
                     Command="{Binding DataContext.SetGermanCultureCommand, RelativeSource={RelativeSource AncestorType=ContextMenu}}"
                 />
-            </ContextMenu>
-        </Button.ContextMenu>
-        <Button.Triggers>
-            <EventTrigger SourceName="LanguageButton" RoutedEvent="Button.Click">
-                <BeginStoryboard>
-                    <Storyboard>
-                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="LanguageButtonContextMenu" Storyboard.TargetProperty="(ContextMenu.IsOpen)">
-                            <DiscreteObjectKeyFrame KeyTime="0:0:0">
-                                <DiscreteObjectKeyFrame.Value>
-                                    <System:Boolean>True</System:Boolean>
-                                </DiscreteObjectKeyFrame.Value>
-                            </DiscreteObjectKeyFrame>
-                        </ObjectAnimationUsingKeyFrames>
-                    </Storyboard>
-                </BeginStoryboard>
-            </EventTrigger>
-        </Button.Triggers>
+                </ContextMenu>
+            </Button.ContextMenu>
+            <Button.Triggers>
+                <EventTrigger SourceName="LanguageButton" RoutedEvent="Button.Click">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="LanguageButtonContextMenu" Storyboard.TargetProperty="(ContextMenu.IsOpen)">
+                                <DiscreteObjectKeyFrame KeyTime="0:0:0">
+                                    <DiscreteObjectKeyFrame.Value>
+                                        <System:Boolean>True</System:Boolean>
+                                    </DiscreteObjectKeyFrame.Value>
+                                </DiscreteObjectKeyFrame>
+                            </ObjectAnimationUsingKeyFrames>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Button.Triggers>
 
-        <materialDesign:PackIcon Kind="Web" />
-    </Button>
+            <materialDesign:PackIcon Kind="Web" />
+        </Button>
 
-    <Button
+        <Button
         Command="{Binding CloseApplicationCommand}"
         DockPanel.Dock="Left"
     >
-        <materialDesign:PackIcon Kind="Menu" />
-    </Button>
-    <TextBlock
+            <materialDesign:PackIcon Kind="Menu" />
+        </Button>
+        <TextBlock
         DockPanel.Dock="Left"
         Text="Medista"
     >
-    </TextBlock>
-</DockPanel>
+        </TextBlock>
+    </DockPanel>
+</UserControl>

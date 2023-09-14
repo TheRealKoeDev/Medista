@@ -12,7 +12,7 @@ namespace Medista.Components.MainWindowTitlebar
     /// <summary>
     /// Interaction logic for MainWindowTitleBar.xaml
     /// </summary>
-    public partial class MainWindowTitleBarView: DockPanel
+    public partial class MainWindowTitleBarView: UserControl
     {
         private Window? Window;
 
