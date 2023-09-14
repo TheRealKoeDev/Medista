@@ -4,7 +4,7 @@ using System.Windows;
 
 namespace Medista.Commands
 {
-    public class CloseApplicationCommand : BaseCommand
+    public class CloseApplicationCommand : Command
     {
         public override void Execute(object? parameter)
         {

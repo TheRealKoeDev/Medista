@@ -5,7 +5,7 @@ using System.Windows.Input;
 
 namespace Medista.Commands
 {
-    public abstract class BaseCommand : ICommand, IDisposable
+    public abstract class Command : ICommand, IDisposable
     {
         protected readonly IMediator _mediator = Injector.Get<IMediator>();
 

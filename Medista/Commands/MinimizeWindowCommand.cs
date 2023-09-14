@@ -4,7 +4,7 @@ using System.Windows;
 
 namespace Medista.Commands
 {
-    public class MinimizeWindowCommand : BaseCommand
+    public class MinimizeWindowCommand : Command
     {
         private readonly Window _window;
 

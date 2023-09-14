@@ -4,7 +4,7 @@ using System.Windows;
 
 namespace Medista.Commands
 {
-    public class ToggleWindowMaximizationCommand : BaseCommand
+    public class ToggleWindowMaximizationCommand : Command
     {
         private readonly Window _window;
 

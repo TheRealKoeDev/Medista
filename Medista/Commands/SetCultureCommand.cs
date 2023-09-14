@@ -5,7 +5,7 @@ using WPFLocalizeExtension.Engine;
 
 namespace Medista.Commands
 {
-    public class SetCultureCommand : BaseCommand
+    public class SetCultureCommand : Command
     {
         private static readonly string _fallbackCulture = "en-US";
 
