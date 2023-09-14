@@ -1,4 +1,5 @@
 ﻿using Medista.Utils;
+using System.ComponentModel;
 using System.Windows;
 
 namespace Medista.Components.MainWindow

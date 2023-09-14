@@ -19,7 +19,7 @@ namespace Medista.Components.MainWindowTitlebar
         public MainWindowTitleBarView()
         {
             DataContext = Injector.Get<MainWindowTitleBarViewModel>();
-            if (!DesignerProperties.GetIsInDesignMode(this))
+            if (DesignerProperties.GetIsInDesignMode(this) == false)
             {
                 Loaded += TitleBarLoaded;
             }

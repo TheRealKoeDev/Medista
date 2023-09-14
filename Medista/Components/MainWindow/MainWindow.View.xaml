@@ -7,6 +7,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:component="clr-namespace:Medista.Components.MainWindow"
     xmlns:MainWindowTitlebar="clr-namespace:Medista.Components.MainWindowTitlebar"
+    xmlns:MainWindowSidenav="clr-namespace:Medista.Components.MainWindowSidenav"
     mc:Ignorable="d"
     Style="{DynamicResource MainWindowStyle}"
 >
@@ -23,7 +24,7 @@
     </WindowChrome.WindowChrome>
     <DockPanel>
         <MainWindowTitlebar:MainWindowTitleBarView DockPanel.Dock="Top"></MainWindowTitlebar:MainWindowTitleBarView>
-        <!--views:MainWindowSidenav DockPanel.Dock="Left"></views:MainWindowSidenav-->
+        <MainWindowSidenav:MainWindowSidenavView DockPanel.Dock="Left"></MainWindowSidenav:MainWindowSidenavView>
         <UserControl DockPanel.Dock="Right"></UserControl>
     </DockPanel>
 </Window>

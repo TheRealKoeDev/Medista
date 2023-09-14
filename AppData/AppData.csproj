@@ -45,4 +45,11 @@
     <Folder Include="Mediator\Requests\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Page Include="..\Medista\Styles\MainContentStyle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <Link>MainContentStyle.xaml</Link>
+    </Page>
+  </ItemGroup>
+
 </Project>

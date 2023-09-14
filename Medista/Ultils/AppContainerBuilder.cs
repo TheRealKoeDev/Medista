@@ -8,9 +8,9 @@ using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.IO;
 using FluentMigrator.Runner;
-using Medista.ViewModels.MainWindowSidenav;
 using Medista.Components.MainWindow;
 using Medista.Components.MainWindowTitlebar;
+using Medista.Components.MainWindowSidenav;
 
 namespace Medista.Utils
 {
