@@ -2,6 +2,7 @@
 using FluentMigrator.Runner;
 using Medista.Commands;
 using Medista.Utils;
+using Medista.Components.MainWindow;
 using System.Threading;
 using System.Windows;
 
@@ -23,7 +24,7 @@ namespace Medista
             SetCultureCommand setCultureCommand = new (Medista.Properties.Settings.Default.CurrentCulture ?? Thread.CurrentThread.CurrentUICulture.Name);
             setCultureCommand.Execute();     
 
-            new MainWindow().Show();
+            new MainWindowView().Show();
 
             base.OnStartup(e);
         }

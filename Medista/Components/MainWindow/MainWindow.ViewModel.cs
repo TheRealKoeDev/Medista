@@ -1,8 +1,9 @@
 ﻿using AppData.Utils;
 using System;
 using System.Threading.Tasks;
+using Medista.ViewModels;
 
-namespace Medista.ViewModels
+namespace Medista.Components.MainWindow
 {
     public sealed class MainWindowViewModel : ViewModel
     {

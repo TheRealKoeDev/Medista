@@ -6,11 +6,11 @@ using Medista.ViewModels;
 using LinqToDB;
 using Microsoft.Extensions.DependencyInjection;
 using System;
-using System.Data;
 using System.IO;
-using System.Linq;
-using System.Reflection;
 using FluentMigrator.Runner;
+using Medista.ViewModels.MainWindowSidenav;
+using Medista.Components.MainWindow;
+using Medista.Components.MainWindowTitlebar;
 
 namespace Medista.Utils
 {
@@ -19,6 +19,8 @@ namespace Medista.Utils
         private static Type[] SingletonTypes => new Type[] {
             typeof(MainWindowViewModel),
             typeof(MainWindowTitleBarViewModel),
+            typeof(MainWindowSidenavViewModel),
+            typeof(DashboardViewModel),
         };
 
         public static void RegisterDatabase(IServiceCollection serviceCollection)
@@ -41,37 +43,10 @@ namespace Medista.Utils
 
         public static void RegisterViewModels(IServiceCollection serviceCollection)
         {
-            Type[] assemblyTypes = Assembly.GetExecutingAssembly().GetTypes();
-
             foreach (Type singletonType in SingletonTypes)
             {
                 serviceCollection.AddSingleton(singletonType);
             }
-
-            foreach (Type transientType in assemblyTypes.Where(IsTransientViewModel))
-            {
-                serviceCollection.AddTransient(transientType);
-            }
-
-            foreach (Type commantType in assemblyTypes.Where(IsCommand))
-            {
-                serviceCollection.AddTransient(commantType);
-            }
-        }
-
-        private static bool IsTransientViewModel(Type type)
-        {
-            bool isSingleton = SingletonTypes.Contains(type);
-            bool containsViewModelNamespace = type.Namespace?.StartsWith($"{nameof(Medista)}.{nameof(ViewModels)}") ?? false;
-
-            return containsViewModelNamespace && !isSingleton && type.IsClass && !type.IsAbstract;
-        }
-
-        private static bool IsCommand(Type type)
-        {
-            bool containsCommandNamespace = type.Namespace?.StartsWith($"{nameof(Medista)}.{nameof(Commands)}") ?? false;
-
-            return containsCommandNamespace && type.IsClass && !type.IsAbstract;
         }
     }
 }

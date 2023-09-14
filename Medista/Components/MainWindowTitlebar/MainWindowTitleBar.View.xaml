@@ -1,22 +1,22 @@
 ﻿<DockPanel
-    x:Class="Medista.Views.MainWindowTitleBar"
-    d:DataContext="{d:DesignInstance Type=viewmodels:MainWindowTitleBarViewModel}"
+    x:Class="Medista.Components.MainWindowTitlebar.MainWindowTitleBarView"
+    d:DataContext="{d:DesignInstance Type=component:MainWindowTitleBarViewModel}"
     mc:Ignorable="d"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-    xmlns:viewmodels="clr-namespace:Medista.ViewModels"
+    xmlns:component="clr-namespace:Medista.Components.MainWindowTitlebar"
     xmlns:lex="http://wpflocalizeextension.codeplex.com"
-    xmlns:System="clr-namespace:System;assembly=netstandard"
+    xmlns:System="clr-namespace:System;assembly=netstandard"    
     lex:ResxLocalizationProvider.DefaultAssembly="Medista"
     lex:ResxLocalizationProvider.DefaultDictionary="MainWindowTitleBar"
     MouseDown="TitleBarMouseDown"
     Style="{StaticResource MainWindowTitleBarStyle}"
  >
     <DockPanel.Resources>
-        <ResourceDictionary Source="../Styles/MainWindowTitleBarStyle.xaml" />
+        <ResourceDictionary Source="MainWindowTitleBar.Style.xaml" />
     </DockPanel.Resources>
 
     <UserControl DockPanel.Dock="Bottom" Style="{StaticResource BottomBorder}"></UserControl>
@@ -45,7 +45,7 @@
             <ContextMenu x:Name="LanguageButtonContextMenu">
                 <ContextMenu.DataContext>
                     <!-- TODO: Inherit the datacontext instead of creating a new one -->
-                    <viewmodels:MainWindowTitleBarViewModel></viewmodels:MainWindowTitleBarViewModel>
+                    <component:MainWindowTitleBarViewModel></component:MainWindowTitleBarViewModel>
                 </ContextMenu.DataContext>
                 <MenuItem
                     Header="{lex:Loc Key=English}"

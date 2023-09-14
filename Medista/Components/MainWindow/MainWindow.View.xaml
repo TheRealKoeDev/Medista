@@ -1,0 +1,29 @@
+﻿<Window
+    d:DataContext="{d:DesignInstance Type=component:MainWindowViewModel}"
+    x:Class="Medista.Components.MainWindow.MainWindowView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:component="clr-namespace:Medista.Components.MainWindow"
+    xmlns:MainWindowTitlebar="clr-namespace:Medista.Components.MainWindowTitlebar"
+    mc:Ignorable="d"
+    Style="{DynamicResource MainWindowStyle}"
+>
+    <Window.Resources>
+        <ResourceDictionary Source="MainWindow.Style.xaml" />
+    </Window.Resources>
+    <WindowChrome.WindowChrome>
+        <WindowChrome
+            CaptionHeight="0"
+            ResizeBorderThickness="5"
+            NonClientFrameEdges="Left, Right, Bottom"
+            UseAeroCaptionButtons="True"
+        />
+    </WindowChrome.WindowChrome>
+    <DockPanel>
+        <MainWindowTitlebar:MainWindowTitleBarView DockPanel.Dock="Top"></MainWindowTitlebar:MainWindowTitleBarView>
+        <!--views:MainWindowSidenav DockPanel.Dock="Left"></views:MainWindowSidenav-->
+        <UserControl DockPanel.Dock="Right"></UserControl>
+    </DockPanel>
+</Window>

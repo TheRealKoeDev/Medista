@@ -14,6 +14,7 @@
     <PackageReference Include="MaterialDesignColors" Version="2.1.4" />
     <PackageReference Include="MaterialDesignThemes" Version="4.9.0" />
     <PackageReference Include="MediatR" Version="12.1.1" />
+    <PackageReference Include="SharpVectors" Version="1.8.1" />
     <PackageReference Include="WPFLocalizeExtension" Version="3.10.0" />
   </ItemGroup>
 
@@ -22,7 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Localization\MainWindowTitleBar\MainWindowTitleBar.Designer.cs">
+    <Compile Update="Components\MainWindowTitlebar\Localization\MainWindowTitleBar.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>MainWindowTitleBar.resx</DependentUpon>
@@ -35,11 +36,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Update="Localization\MainWindowTitleBar\MainWindowTitleBar.de-DE.resx">
+    <EmbeddedResource Update="Components\MainWindowTitlebar\Localization\MainWindowTitleBar.de-DE.resx">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <Generator>PublicResXFileCodeGenerator</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Localization\MainWindowTitleBar\MainWindowTitleBar.resx">
+    <EmbeddedResource Update="Components\MainWindowTitlebar\Localization\MainWindowTitleBar.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>MainWindowTitleBar.Designer.cs</LastGenOutput>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

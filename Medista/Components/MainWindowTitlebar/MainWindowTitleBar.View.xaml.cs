@@ -5,19 +5,18 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using Medista.Utils;
-using Medista.ViewModels;
 using AppData.Utils;
 
-namespace Medista.Views
+namespace Medista.Components.MainWindowTitlebar
 {
     /// <summary>
     /// Interaction logic for MainWindowTitleBar.xaml
     /// </summary>
-    public partial class MainWindowTitleBar: DockPanel
+    public partial class MainWindowTitleBarView: DockPanel
     {
         private Window? Window;
 
-        public MainWindowTitleBar()
+        public MainWindowTitleBarView()
         {
             DataContext = Injector.Get<MainWindowTitleBarViewModel>();
             if (!DesignerProperties.GetIsInDesignMode(this))

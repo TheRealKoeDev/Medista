@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Medista.Localization.MainWindowTitleBar {
+namespace Medista.Components.MainWindowTitlebar.Localization {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace Medista.Localization.MainWindowTitleBar {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Medista.Localization.MainWindowTitleBar.MainWindowTitleBar", typeof(MainWindowTitleBar).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Medista.Components.MainWindowTitlebar.Localization.MainWindowTitleBar", typeof(MainWindowTitleBar).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
