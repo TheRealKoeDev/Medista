@@ -6,6 +6,7 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using Medista.Utils;
 using AppData.Utils;
+using Medista.Ultils;
 
 namespace Medista.Components.MainWindowTitlebar
 {
@@ -18,6 +19,7 @@ namespace Medista.Components.MainWindowTitlebar
 
         public MainWindowTitleBarView()
         {
+            this.TryInitDesignInjector();
             DataContext = Injector.Get<MainWindowTitleBarViewModel>();
             if (DesignerProperties.GetIsInDesignMode(this) == false)
             {
@@ -27,7 +29,7 @@ namespace Medista.Components.MainWindowTitlebar
             InitializeComponent();
         }
 
-        public void TitleBarLoaded(object? sender, EventArgs? args)
+        private void TitleBarLoaded(object? sender, EventArgs? args)
         {
             Window = Window.GetWindow(this);
 
@@ -36,7 +38,7 @@ namespace Medista.Components.MainWindowTitlebar
             Window.StateChanged += UpdateMaximizationToggleIcon;
         }
 
-        public void UpdateMaximizationToggleIcon(object? sender = null, EventArgs? args = null)
+        private void UpdateMaximizationToggleIcon(object? sender = null, EventArgs? args = null)
         {
             if (Window == null)
             {

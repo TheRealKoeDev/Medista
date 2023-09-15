@@ -8,6 +8,7 @@
     <UseWindowsForms>True</UseWindowsForms>
     <StartupObject>Medista.App</StartupObject>
     <ImplicitUsings>disable</ImplicitUsings>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
 
   <ItemGroup>

@@ -4,7 +4,6 @@
 >
     <Style x:Key="Sidenav" TargetType="{x:Type ListView}">
         <Setter Property="Width" Value="50"></Setter>
-        <Setter Property="Background" Value="Red"></Setter>
     </Style>
 
 </ResourceDictionary>

@@ -13,11 +13,15 @@ namespace Medista
     /// </summary>
     public partial class App : Application
     {
-        protected override void OnStartup(StartupEventArgs e)
-        {
+        public static void InitializeInjector() {
             Injector.Register(AppContainerBuilder.RegisterDatabase);
             Injector.Register(AppContainerBuilder.RegisterViewModels);
             Injector.Build();
+        }
+
+        protected override void OnStartup(StartupEventArgs e)
+        {
+            App.InitializeInjector();
 
             Injector.Get<IMigrationRunner>().MigrateUp();
 

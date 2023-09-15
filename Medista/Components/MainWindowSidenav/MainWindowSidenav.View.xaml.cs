@@ -1,4 +1,4 @@
-﻿using AppData.Utils;
+﻿using Medista.Ultils;
 using System.Windows.Controls;
 
 namespace Medista.Components.MainWindowSidenav
@@ -10,6 +10,7 @@ namespace Medista.Components.MainWindowSidenav
     {
         public MainWindowSidenavView()
         {
+            this.TryInitDesignInjector();
             DataContext = new MainWindowSidenavViewModel();
             InitializeComponent();
         }

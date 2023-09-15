@@ -1,5 +1,5 @@
-﻿using Medista.Utils;
-using System.ComponentModel;
+﻿using Medista.Ultils;
+using Medista.Utils;
 using System.Windows;
 
 namespace Medista.Components.MainWindow
@@ -11,6 +11,7 @@ namespace Medista.Components.MainWindow
     {
         public MainWindowView()
         {
+            this.TryInitDesignInjector();
             WindowStateHandler.Initialize(this);
 
             DataContext = AppData.Utils.Injector.Get<MainWindowViewModel>();

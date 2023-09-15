@@ -39,7 +39,7 @@ namespace AppData.Utils
         {
             if (_host != null)
             {
-                throw new TypeLoadException("Build can only be called once");
+                return;
             }
 
             _host = _hostBuilder?.Build();
@@ -50,7 +50,7 @@ namespace AppData.Utils
         {
             if (_host != null) 
             {
-                throw new TypeLoadException("Types can't be registered after build phase");
+                return;
             }
 
             _hostBuilder.ConfigureServices(action);

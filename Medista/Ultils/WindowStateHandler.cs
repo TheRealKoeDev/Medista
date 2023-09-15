@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Medista.Ultils;
+using System;
 using System.Windows;
 using System.Windows.Forms;
 using System.Windows.Interop;
@@ -44,13 +45,13 @@ namespace Medista.Utils
 
             if (_window?.WindowState == WindowState.Normal)
             {
-                Properties.Settings.Default.WindowLocation = new System.Drawing.Point((int)_window.Left, (int)_window.Top);
-                Properties.Settings.Default.WindowSize = new System.Drawing.Size((int)_window.Width, (int)_window.Height);
+                Properties.Settings.Default.WindowLocation = _window.ToDrawPoint();
+                Properties.Settings.Default.WindowSize = _window.ToDrawSize();
             }
             else
             {
-                Properties.Settings.Default.WindowLocation = new System.Drawing.Point((int)(_window?.RestoreBounds.Location.X ?? 0), (int)(_window?.RestoreBounds.Location.Y ?? 0));
-                Properties.Settings.Default.WindowSize = new System.Drawing.Size((int)(_window?.RestoreBounds.Size.Width ?? 0), (int)(_window?.RestoreBounds.Size.Height ?? 0));
+                Properties.Settings.Default.WindowLocation = _window!.RestoreBounds.Location.ToDrawPoint();
+                Properties.Settings.Default.WindowSize = _window!.RestoreBounds.Size.ToDrawSize();
             }
 
             Properties.Settings.Default.Save();
