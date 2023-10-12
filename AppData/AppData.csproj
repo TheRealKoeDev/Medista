@@ -7,6 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Mediator\**" />
+    <EmbeddedResource Remove="Mediator\**" />
+    <None Remove="Mediator\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="C:\Users\KoeDev\.nuget\packages\linq2db.sqlite\5.2.2\contentFiles\any\any\LinqToDB.Templates\CopyMe.SQLite.tt.txt" />
     <None Remove="C:\Users\KoeDev\.nuget\packages\linq2db.sqlite\5.2.2\contentFiles\any\any\LinqToDB.Templates\DataAnnotations.ttinclude" />
     <None Remove="C:\Users\KoeDev\.nuget\packages\linq2db.sqlite\5.2.2\contentFiles\any\any\LinqToDB.Templates\DataModel.ttinclude" />
@@ -38,11 +44,6 @@
     <PackageReference Include="System.Data.SQLite" Version="1.0.118" />
     <PackageReference Include="System.Data.SQLite.Core" Version="1.0.118" />
     <PackageReference Include="System.Data.SQLite.EF6" Version="1.0.118" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Mediator\RequestHandlers\" />
-    <Folder Include="Mediator\Requests\" />
   </ItemGroup>
 
   <ItemGroup>

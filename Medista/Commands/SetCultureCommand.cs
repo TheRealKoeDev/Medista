@@ -1,5 +1,6 @@
 ﻿// Test Header
 
+using System.Globalization;
 using System.Threading;
 using WPFLocalizeExtension.Engine;
 
@@ -18,7 +19,7 @@ namespace Medista.Commands
 
         public override void Execute(object? parameter = null)
         {
-            System.Globalization.CultureInfo cuture = GetAvailableCulture(_cultureCode);
+            CultureInfo cuture = GetAvailableCulture(_cultureCode);
 
             Thread.CurrentThread.CurrentUICulture = cuture;
             Thread.CurrentThread.CurrentCulture = cuture;
@@ -29,17 +30,17 @@ namespace Medista.Commands
             Properties.Settings.Default.Save();
         }
 
-        private static System.Globalization.CultureInfo GetAvailableCulture(string? cultureCode)
+        private static CultureInfo GetAvailableCulture(string? cultureCode)
         {
             if(cultureCode == null)
             {
-                return new System.Globalization.CultureInfo(_fallbackCulture);
+                return new (_fallbackCulture);
             }
 
             bool cultureIsAvailable = Properties.Settings.Default.AvailableLanguages.Contains(cultureCode);
             if (cultureIsAvailable)
             {
-                return new System.Globalization.CultureInfo(cultureCode);
+                return new (cultureCode);
             }
 
             string culturePrefix = cultureCode.Split("-")[0];
@@ -47,11 +48,11 @@ namespace Medista.Commands
             {
                 if (availableCulture != null && availableCulture.StartsWith(culturePrefix))
                 {
-                    return new System.Globalization.CultureInfo(cultureCode);
+                    return new (cultureCode);
                 }
             }
 
-            return new System.Globalization.CultureInfo(_fallbackCulture);
+            return new (_fallbackCulture);
         }
     }
 }

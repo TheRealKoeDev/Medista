@@ -7,6 +7,7 @@ namespace Medista.Utils
 {
     public static class GlobalKeyPressInterceptor
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Usage", "CA2211:Non-constant fields should not be visible", Justification = "<Pending>")]
         public static KeyPressedDelegate? KeyPressed;
 
         public delegate void KeyPressedDelegate(Keys key);

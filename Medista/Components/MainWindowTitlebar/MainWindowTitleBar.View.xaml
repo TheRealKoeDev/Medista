@@ -12,13 +12,13 @@
     xmlns:System="clr-namespace:System;assembly=netstandard"    
     lex:ResxLocalizationProvider.DefaultAssembly="Medista"
     lex:ResxLocalizationProvider.DefaultDictionary="MainWindowTitleBar"
-    MouseDown="TitleBarMouseDown"    
+    MouseDown="TitleBarMouseDown"
+    Style="{DynamicResource TitleBar}"
 >
     <UserControl.Resources>
         <ResourceDictionary Source="MainWindowTitleBar.Style.xaml" />
     </UserControl.Resources>
     <DockPanel Style="{StaticResource MainWindowTitleBarStyle}">
-        <UserControl DockPanel.Dock="Bottom" Style="{StaticResource BottomBorder}"></UserControl>
         <Button
             Command="{Binding CloseApplicationCommand}"
             DockPanel.Dock="Right"          

@@ -6,7 +6,7 @@ namespace Medista.Components.MainWindowSidenav
     /// <summary>
     /// Interaction logic for MainWindowSidenavView.xaml
     /// </summary>
-    public partial class MainWindowSidenavView : ListView
+    public partial class MainWindowSidenavView : UserControl
     {
         public MainWindowSidenavView()
         {

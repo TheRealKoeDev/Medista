@@ -24,10 +24,9 @@
             </Style>
         </Style.Resources>
     </Style>
-
-    <Style x:Key="BottomBorder" TargetType="{x:Type UserControl}">
-        <Setter Property="Height" Value="4" />
-        <Setter Property="HorizontalAlignment" Value="Stretch"/>
-        <Setter Property="Background" Value="{DynamicResource MaterialDesignLightSeparatorBackground}"/>
+    <Style x:Key="TitleBar" TargetType="{x:Type UserControl}">
+        <Setter Property="Background" Value="{DynamicResource MaterialDesignDarkBackground}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource MaterialDesignLightSeparatorBackground}"/>
+        <Setter Property="BorderThickness" Value="0,0,0,4" />
     </Style>
 </ResourceDictionary>
