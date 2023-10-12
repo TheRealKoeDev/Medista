@@ -8,6 +8,7 @@
     xmlns:component="clr-namespace:Medista.Components.MainWindow"
     xmlns:MainWindowTitlebar="clr-namespace:Medista.Components.MainWindowTitlebar"
     xmlns:MainWindowSidenav="clr-namespace:Medista.Components.MainWindowSidenav"
+    xmlns:Dashboard="clr-namespace:Medista.Components.Dashboard"
     mc:Ignorable="d"
     Style="{DynamicResource MainWindowStyle}"
 >
@@ -25,6 +26,12 @@
     <DockPanel>
         <MainWindowTitlebar:MainWindowTitleBarView DockPanel.Dock="Top"></MainWindowTitlebar:MainWindowTitleBarView>
         <MainWindowSidenav:MainWindowSidenavView DockPanel.Dock="Left"></MainWindowSidenav:MainWindowSidenavView>
-        <UserControl DockPanel.Dock="Right"></UserControl>
+        <ContentControl DockPanel.Dock="Right" Content="{ Binding CurrentViewModel }">
+            <ContentControl.Resources>
+                <DataTemplate DataType="{x:Type Dashboard:DashboardViewModel}">
+                    <Dashboard:DashboardView></Dashboard:DashboardView>
+                </DataTemplate>
+            </ContentControl.Resources>
+        </ContentControl>
     </DockPanel>
 </Window>

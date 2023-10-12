@@ -21,7 +21,7 @@ namespace Medista
 
         protected override void OnStartup(StartupEventArgs e)
         {
-            App.InitializeInjector();
+            InitializeInjector();
 
             Injector.Get<IMigrationRunner>().MigrateUp();
 

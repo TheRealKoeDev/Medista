@@ -2,6 +2,7 @@
 using System;
 using System.Threading.Tasks;
 using Medista.ViewModels;
+using Medista.Components.Dashboard;
 
 namespace Medista.Components.MainWindow
 {

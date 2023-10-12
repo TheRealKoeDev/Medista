@@ -16,8 +16,15 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="50" />
-            <RowDefinition Height="*" />
+            <RowDefinition Height="50" />
         </Grid.RowDefinitions>
-        <MainWindowSidenavElement:MainWindowSidenavElementView></MainWindowSidenavElement:MainWindowSidenavElementView>
-    </Grid>    
+       
+        <ItemsControl ItemsSource="{Binding Elements}">
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <MainWindowSidenavElement:MainWindowSidenavElementView Icon="{StaticResource HomeIcon}"></MainWindowSidenavElement:MainWindowSidenavElementView>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+    </Grid> 
 </UserControl>

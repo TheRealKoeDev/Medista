@@ -2,7 +2,6 @@
 
 using AppData.Utils;
 using Medista.Ultils;
-using Medista.ViewModels;
 using LinqToDB;
 using Microsoft.Extensions.DependencyInjection;
 using System;
@@ -11,6 +10,7 @@ using FluentMigrator.Runner;
 using Medista.Components.MainWindow;
 using Medista.Components.MainWindowTitlebar;
 using Medista.Components.MainWindowSidenav;
+using Medista.Components.Dashboard;
 
 namespace Medista.Utils
 {

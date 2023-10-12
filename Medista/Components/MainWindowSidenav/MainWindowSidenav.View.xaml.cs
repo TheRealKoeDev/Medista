@@ -8,6 +8,7 @@ namespace Medista.Components.MainWindowSidenav
     /// </summary>
     public partial class MainWindowSidenavView : UserControl
     {
+
         public MainWindowSidenavView()
         {
             this.TryInitDesignInjector();

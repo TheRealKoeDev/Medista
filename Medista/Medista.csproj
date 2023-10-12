@@ -24,6 +24,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Components\MainWindowSidenav\Localization\MainWindowSidenav.Designer.cs">
+      <DependentUpon>MainWindowSidenav.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
     <Compile Update="Components\MainWindowTitlebar\Localization\MainWindowTitleBar.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
@@ -37,6 +42,16 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Update="Components\MainWindowSidenav\Localization\MainWindowSidenav.de-DE.resx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+      <Generator>PublicResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Components\MainWindowSidenav\Localization\MainWindowSidenav.resx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <LastGenOutput>MainWindowSidenav.Designer.cs</LastGenOutput>
+      <Generator>PublicResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Components\MainWindowTitlebar\Localization\MainWindowTitleBar.de-DE.resx">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <Generator>PublicResXFileCodeGenerator</Generator>
@@ -49,6 +64,15 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Update="Assets\Images\Sidenav\HomeIcon.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Assets\Images\Sidenav\HomeIcon.svg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Components\MainWindowSidenav\Icons\HomeIcon.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
